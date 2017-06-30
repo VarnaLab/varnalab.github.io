@@ -1,0 +1,24 @@
+{
+  "name": "varnalab.github.io",
+  "version": "0.0.0",
+  "private": true,
+  "description": "varnalab.github.io",
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/varnalab/varnalab.github.io",
+  "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (https://simov.github.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varnalab/varnalab.github.io.git"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {},
+  "main": "",
+  "files": [],
+  "scripts": {},
+  "engines": {
+    "node": "^8.0.0"
+  }
+}
