@@ -1,0 +1,4 @@
+
+v.module.index = (config) => {
+
+}

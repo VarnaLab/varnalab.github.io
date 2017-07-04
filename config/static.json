@@ -1,0 +1,62 @@
+{
+  "development": {
+    "favicon": "assets/images/favicon.ico",
+    "manifest": "manifest.json",
+    "css": [
+      "https://fonts.googleapis.com/css?family=Roboto+Mono",
+      "https://fonts.googleapis.com/icon?family=Material+Icons",
+      "assets/fonts/font-awesome/css/fontello.css",
+
+      "node_modules/@material/drawer/dist/mdc.drawer.min.css",
+      "node_modules/@material/list/dist/mdc.list.min.css",
+      "node_modules/@material/menu/dist/mdc.menu.min.css",
+      "node_modules/@material/ripple/dist/mdc.ripple.min.css",
+      "node_modules/@material/snackbar/dist/mdc.snackbar.min.css",
+      "node_modules/@material/theme/dist/mdc.theme.min.css",
+      "node_modules/@material/toolbar/dist/mdc.toolbar.min.css",
+      "node_modules/@material/typography/dist/mdc.typography.min.css",
+
+      "assets/css/varnalab.css"
+    ],
+    "js": [
+      "node_modules/@material/drawer/dist/mdc.drawer.min.js",
+      "node_modules/@material/menu/dist/mdc.menu.min.js",
+      "node_modules/@material/ripple/dist/mdc.ripple.min.js",
+      "node_modules/@material/snackbar/dist/mdc.snackbar.min.js",
+      "node_modules/@material/toolbar/dist/mdc.toolbar.min.js",
+
+      "node_modules/mithril/mithril.min.js",
+
+      "mithril/index.js",
+      "mithril/layout.js",
+
+      "mithril/modules/index.js",
+      "mithril/routes/index.js",
+      "mithril/views/index.js",
+
+      "mithril/modules/team.js",
+      "mithril/routes/team.js",
+      "mithril/views/team.js",
+
+      "mithril/modules/member.js",
+      "mithril/routes/member.js",
+      "mithril/views/member.js"
+    ]
+  },
+  "production": {
+    "favicon": "assets/images/favicon.ico",
+    "manifest": "manifest.json",
+    "css": [
+      "https://fonts.googleapis.com/css?family=Roboto+Mono",
+      "https://fonts.googleapis.com/icon?family=Material+Icons",
+      "assets/fonts/font-awesome/css/fontello.css",
+      "https://box.outofindex.com/varnalab/assets/build/mdc.varnalab.min.css",
+      "https://box.outofindex.com/varnalab/assets/build/varnalab.min.css"
+    ],
+    "js": [
+      "https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.1/mithril.min.js",
+      "https://box.outofindex.com/varnalab/assets/build/mdc.varnalab.min.js",
+      "https://box.outofindex.com/varnalab/assets/build/varnalab.min.js"
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+
+/*main content*/
+
+.mdc-toolbar-fixed-adjust {
+  margin-top: 230px !important; /*should be before @media!*/
+}
+
+/*desktop*/
+
+@media (min-width: 400px) {
+  body {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .mdc-toolbar--fixed {
+    width: 400px;
+    left: 50%;
+    margin-left: -200px;
+  }
+
+  .mdc-toolbar-fixed-adjust {
+    margin-top: 270px !important;
+  }
+}
+
+/*theme*/
+
+.v-dark,
+.v-dark .mdc-simple-menu,
+.v-dark .mdc-temporary-drawer__content {
+  background: #000;
+}
+
+.v-dark,
+.v-dark .mdc-list,
+.v-dark .mdc-list-item i.material-icons {
+  color: #fcfefb;
+}
+
+/*all headers*/
+h1 {
+  text-align: center;
+}
+
+/*toolbar header scroll*/
+
+.mdc-temporary-drawer__header-content,
+.mdc-toolbar__row:first-child::after {
+  background-image: url("../images/matrix.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+.mdc-toolbar__row {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.mdc-toolbar__row img {
+  position: relative;
+  z-index: 1;
+  display: none;
+  transition: all .1s;
+  box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.5);
+}
+
+.mdc-toolbar__row img.v-circle {
+  border-radius: 50%;
+}
+
+/*toolbar header title*/
+
+.mdc-toolbar__title {
+  opacity: 0;
+  transition: all .1s;
+}
+
+.mdc-toolbar__section {
+  z-index: 2;
+}
+
+/*drawer*/
+.v-drawer .mdc-typography--display1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.v-drawer .mdc-list-item {
+  font-size: 1rem;
+}
+.v-drawer .active {
+  background: #9C9CAD;
+}
+
+/*theme menu*/
+
+.mdc-simple-menu .active {
+  background: #9C9CAD;
+}
+
+/*team filter*/
+.mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
+.mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
+.mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
+
+/*team list icons*/
+
+.v-team .mdc-list-item__end-detail {
+  width: auto;
+  height: auto;
+  margin-right: 0;
+}
+
+.v-online {
+  color: #44CF6C;
+}
+
+/*member social icons*/
+.v-member [class*=icon-] {
+  font-size: 40px;
+}
