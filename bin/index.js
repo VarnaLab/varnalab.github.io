@@ -3,9 +3,19 @@
 var argv = require('minimist')(process.argv.slice(2))
 
 if (argv.help) {
-  console.log('--render')
+  console.log('--render /path/to/render/location/')
   console.log('--build /path/to/build/location/')
   console.log('--env')
+  process.exit()
+}
+
+if (argv.render && typeof argv.render !== 'string') {
+  console.log('Specify --render /path/to/render/location/')
+  process.exit()
+}
+
+if (argv.build && typeof argv.build !== 'string') {
+  console.log('Specify --build /path/to/build/location/')
   process.exit()
 }
 
@@ -21,7 +31,7 @@ var path = require('path')
 if (argv.render) {
   base({meta, static})
     .then((html) => {
-      fs.writeFileSync(path.resolve(__dirname, '../index.html'), html, 'utf8')
+      fs.writeFileSync(path.resolve(process.cwd(), argv.render, 'index.html'), html, 'utf8')
     })
     .catch((err) => console.error(err))
 }
