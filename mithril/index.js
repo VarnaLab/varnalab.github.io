@@ -6,6 +6,7 @@ var v = {
     // box: 'http://192.168.1.101:3000',
     // org: 'http://192.168.1.101:3000/varnalab'
   },
+  prefix: '',
   layout: {},
   module: {},
   route: {},
@@ -16,7 +17,8 @@ var v = {
 window.addEventListener('DOMContentLoaded', () => {
 
   if (location.host === 'box.outofindex.com') {
-    m.route.prefix('/varnalab/app')
+    v.prefix = '/varnalab/app'
+    m.route.prefix(v.prefix)
   }
 
   m.route(document.querySelector('body'), '/', {

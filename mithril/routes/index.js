@@ -3,7 +3,7 @@ v.route.index = (team) => {
   var state = {
     route: 'index',
     title: '[ VarnaLab ]',
-    avatar: 'assets/images/logo.png',
+    avatar: v.prefix + '/assets/images/logo.png',
     toolbar: [
       {path: '/team', icon: 'directions_run'}
     ],

@@ -3,7 +3,7 @@ v.route.team = (team) => {
   var state = {
     route: 'team',
     title: '[ ]',
-    avatar: 'assets/images/logo.png',
+    avatar: v.prefix + '/assets/images/logo.png',
     toolbar: [
       {path: '/team', icon: 'list'},
       {path: '/team/online', icon: 'power'},
