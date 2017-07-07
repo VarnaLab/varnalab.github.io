@@ -15,6 +15,10 @@ var v = {
 
 window.addEventListener('DOMContentLoaded', () => {
 
+  if (location.host === 'box.outofindex.com') {
+    m.route.prefix('/varnalab/app')
+  }
+
   m.route(document.querySelector('body'), '/', {
 
     '/': v.route.index(

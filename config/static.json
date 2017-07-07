@@ -44,8 +44,8 @@
     ]
   },
   "production": {
-    "favicon": "assets/images/favicon.ico",
-    "manifest": "manifest.json",
+    "favicon": "https://box.outofindex.com/varnalab/app/assets/images/favicon.ico",
+    "manifest": "https://box.outofindex.com/varnalab/app/manifest.json",
     "css": [
       "https://fonts.googleapis.com/css?family=Roboto+Mono",
       "https://fonts.googleapis.com/icon?family=Material+Icons",
