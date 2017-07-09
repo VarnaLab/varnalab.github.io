@@ -20,6 +20,9 @@ window.addEventListener('DOMContentLoaded', () => {
     v.prefix = '/varnalab/app'
     m.route.prefix(v.prefix)
   }
+  else if (location.protocol === 'file:') {
+    v.prefix = '/android_asset/www'
+  }
 
   m.route(document.querySelector('body'), '/', {
 
