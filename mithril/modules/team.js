@@ -3,7 +3,7 @@ v.module.team = (config) => {
   var url = {
     members: config.origin.box + '/varnalab/members',
     sponsors: config.origin.box + '/varnalab/stats/sponsors',
-    online: config.origin.org + '/services/whois-online.json'
+    online: config.origin.box + '/varnalab/online'
   }
 
   var state = {

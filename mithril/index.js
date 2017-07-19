@@ -1,8 +1,8 @@
 
 var v = {
   origin: {
-    box: 'https://box.outofindex.com',
-    org: 'https://json.varnalab.org'
+    box: 'https://box.outofindex.com'
+    // org: 'https://json.varnalab.org'
     // box: 'http://192.168.1.101:3000',
     // org: 'http://192.168.1.101:3000/varnalab'
   },
