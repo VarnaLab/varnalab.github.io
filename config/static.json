@@ -34,13 +34,13 @@
       "mithril/routes/index.js",
       "mithril/views/index.js",
 
-      "mithril/modules/team.js",
-      "mithril/routes/team.js",
-      "mithril/views/team.js",
+      "mithril/modules/whois.js",
+      "mithril/routes/whois.js",
+      "mithril/views/whois.js",
 
-      "mithril/modules/member.js",
-      "mithril/routes/member.js",
-      "mithril/views/member.js"
+      "mithril/modules/known.js",
+      "mithril/routes/known.js",
+      "mithril/views/known.js"
     ]
   },
   "production": {
