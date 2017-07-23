@@ -5,7 +5,7 @@ v.route.known = (whois, known) => {
     title: '[ ]',
     avatar: '',
     toolbar: [
-      {path: '/team', icon: 'directions_run'}
+      {path: '/whois', icon: 'directions_run'}
     ],
     known: {},
     social: []
