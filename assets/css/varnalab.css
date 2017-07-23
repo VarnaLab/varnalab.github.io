@@ -101,14 +101,14 @@ h1 {
   background: #9C9CAD;
 }
 
-/*team filter*/
+/*whois filter*/
 .mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
 .mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
 .mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
 
-/*team list icons*/
+/*whois list icons*/
 
-.v-team .mdc-list-item__end-detail {
+.v-whois .mdc-list-item__end-detail {
   width: auto;
   height: auto;
   margin-right: 0;
@@ -118,7 +118,7 @@ h1 {
   color: #44CF6C;
 }
 
-/*member social icons*/
-.v-member [class*=icon-] {
+/*known social icons*/
+.v-known [class*=icon-] {
   font-size: 40px;
 }

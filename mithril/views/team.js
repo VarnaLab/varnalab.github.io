@@ -1,5 +1,5 @@
 
-v.view.team = {
+v.view.whois = {
   oninit: (vnode) => {
     var snackbar
 
@@ -8,9 +8,9 @@ v.view.team = {
         var MDCSnackbar = window.mdc.snackbar.MDCSnackbar
         snackbar = new MDCSnackbar(n.dom)
       },
-      open: (member) => () => {
+      open: (known) => () => {
         snackbar.show({
-          message: '[ ' + member.name + ' ] не е въведен!'
+          message: '[ ' + known.name + ' ] не е въведен!'
         })
         return false
       }
@@ -18,19 +18,19 @@ v.view.team = {
   },
   view: (vnode) =>
     m('.mdc-toolbar-fixed-adjust',
-      m('ul.mdc-list mdc-list--avatar-list v-team',
-        vnode.attrs.members.map((member) =>
+      m('ul.mdc-list mdc-list--avatar-list v-whois',
+        vnode.attrs.known.map((known) =>
           m('a.mdc-list-item', {
-            key: member.id,
-            href: '/member/' + member.id,
-            oncreate: member.id ? m.route.link : null,
-            onclick: !member.id ? vnode.state.snackbar.open(member) : null
+            key: known.id,
+            href: '/known/' + known.id,
+            oncreate: known.id ? m.route.link : null,
+            onclick: !known.id ? vnode.state.snackbar.open(known) : null
             },
             m('img.mdc-list-item__start-detail', {
-              src: member.avatar
+              src: known.avatar
             }),
-            member.name,
-            (member.online || null) &&
+            known.name,
+            (known.online || null) &&
             m('span.mdc-list-item__end-detail material-icons v-online',
               'power'
             )

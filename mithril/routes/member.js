@@ -1,13 +1,13 @@
 
-v.route.member = (team, member) => {
+v.route.known = (whois, known) => {
   var state = {
-    route: 'member',
+    route: 'known',
     title: '[ ]',
     avatar: '',
     toolbar: [
       {path: '/team', icon: 'directions_run'}
     ],
-    member: {},
+    known: {},
     social: []
   }
 
@@ -16,29 +16,29 @@ v.route.member = (team, member) => {
 
     state.title = ''
     state.avatar = ''
-    state.member = {}
+    state.known = {}
     state.social = []
 
-    team.get().then((data) => {
+    whois.get().then((data) => {
 
-      state.member = team.members(data)
-        .find((member) => member.id === args.id)
+      state.known = whois.known(data)
+        .find((known) => known.id === args.id)
 
-      team.loaded = true
+      whois.loaded = true
 
-      state.title = '[ ' + state.member.name + ' ]'
-      state.avatar = 'https://gravatar.com/avatar/' + state.member.gravatar +
+      state.title = '[ ' + state.known.name + ' ]'
+      state.avatar = 'https://gravatar.com/avatar/' + state.known.gravatar +
         '?size=150&d=monsterid'
       document.title = state.title
 
-      state.social = member.social(state.member)
+      state.social = known.social(state.known)
       m.redraw()
     })
     .catch((err) => console.error(err))
   }
 
   var render = (vnode) => {
-    return m(v.layout, state, m(v.view.member, state))
+    return m(v.layout, state, m(v.view.known, state))
   }
 
   return {onmatch, render}

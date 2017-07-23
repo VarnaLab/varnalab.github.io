@@ -1,28 +1,28 @@
 
-v.route.index = (team) => {
+v.route.index = (whois) => {
   var state = {
     route: 'index',
     title: '[ VarnaLab ]',
     avatar: v.prefix + '/assets/images/logo.png',
     toolbar: [
-      {path: '/team', icon: 'directions_run'}
+      {path: '/whois', icon: 'directions_run'}
     ],
-    members: []
+    known: []
   }
 
   var onmatch = (args, requestedUrl) => {
     window.scrollTo(0, 0)
     document.title = state.title
 
-    if (team.loaded) {
+    if (whois.loaded) {
       return
     }
 
-    team.get()
+    whois.get()
       .then((data) => {
-        state.members = team.members(data)
+        state.known = whois.known(data)
           .filter((member) => member.online)
-        team.loaded = true
+        whois.loaded = true
         m.redraw()
       })
   }

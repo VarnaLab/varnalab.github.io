@@ -1,21 +1,21 @@
 
-v.module.member = (config) => {
+v.module.known = (config) => {
 
-  var social = (member) =>
-    Object.keys(member)
+  var social = (known) =>
+    Object.keys(known)
       .reduce((social, key) => {
-        if (key === 'github' && member[key]) {
+        if (key === 'github' && known[key]) {
           social.push({
             icon: 'github',
             name: 'GitHub',
-            url: 'https://github.com/' + member[key]
+            url: 'https://github.com/' + known[key]
           })
         }
-        else if (key === 'twitter' && member[key]) {
+        else if (key === 'twitter' && known[key]) {
           social.push({
             icon: 'twitter',
             name: 'Twitter',
-            url: 'https://twitter.com/' + member[key]
+            url: 'https://twitter.com/' + known[key]
           })
         }
         return social

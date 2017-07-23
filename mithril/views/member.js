@@ -1,8 +1,8 @@
 
-v.view.member = {
+v.view.known = {
   view: (vnode) =>
-    m('.mdc-toolbar-fixed-adjust v-member',
-      m('h1.mdc-typography--headline', '[ ', vnode.attrs.member.name, ' ]'),
+    m('.mdc-toolbar-fixed-adjust v-known',
+      m('h1.mdc-typography--headline', '[ ', vnode.attrs.known.name, ' ]'),
 
       m('ul.mdc-list mdc-list--avatar-list',
         vnode.attrs.social.map((provider) =>

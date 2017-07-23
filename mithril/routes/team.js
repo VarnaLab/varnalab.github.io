@@ -1,17 +1,17 @@
 
-v.route.team = (team) => {
+v.route.whois = (whois) => {
   var state = {
-    route: 'team',
+    route: 'whois',
     title: '[ ]',
     avatar: v.prefix + '/assets/images/logo.png',
     toolbar: [
-      {path: '/team', icon: 'list'},
-      {path: '/team/online', icon: 'power'},
-      {path: '/team/sponsors', icon: 'attach_money'}
+      {path: '/whois', icon: 'list'},
+      {path: '/whois/online', icon: 'power'},
+      {path: '/whois/backers', icon: 'attach_money'}
     ],
     all: [],
     missing: [],
-    members: []
+    known: []
   }
 
   function active (index) {
@@ -21,41 +21,41 @@ v.route.team = (team) => {
 
   var filter = {
     all: () => {
-      document.title = state.title = '[ Екип ]'
+      document.title = state.title = '[ Хора ]'
       active(0)
-      state.members = state.all
+      state.known = state.all
         .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
     },
     online: () => {
       document.title = state.title = '[ Онлайн ]'
       active(1)
-      state.members = state.all
-        .filter((member) => member.online)
+      state.known = state.all
+        .filter((known) => known.online)
         .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
     },
-    sponsors: () => {
-      document.title = state.title = '[ Спонсори ]'
+    backers: () => {
+      document.title = state.title = '[ Дарители ]'
       active(2)
-      state.members = state.all
-        .filter((member) => member.sponsor)
+      state.known = state.all
+        .filter((known) => known.backer)
         .concat(state.missing)
-        .sort((a, b) => (b.sponsor.average - a.sponsor.average))
+        .sort((a, b) => (b.backer.average - a.backer.average))
     }
   }
 
   var onmatch = (args, requestedUrl) => {
-    team.get()
+    whois.get()
       .then((data) => {
-        team.loaded = true
-        state.all = team.members(data)
-        state.missing = team.missing(data)
+        whois.loaded = true
+        state.all = whois.known(data)
+        state.missing = whois.missing(data)
         filter[args.filter || 'all']()
         m.redraw()
       })
   }
 
   var render = (vnode) => {
-    return m(v.layout, state, m(v.view.team, state))
+    return m(v.layout, state, m(v.view.whois, state))
   }
 
   return {onmatch, render}

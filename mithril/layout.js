@@ -35,7 +35,7 @@ v.layout = {
 
       vnode.state.drawer.items = [
         {path: '/', icon: 'refresh', text: '[ Начало ]', route: 'index'},
-        {path: '/team', icon: 'directions_run', text: '[ Екип ]', route: 'team'}
+        {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'}
       ]
 
       vnode.state.drawer.open = () => {
@@ -125,7 +125,7 @@ v.layout = {
         ),
         m('img', {
           src: vnode.attrs.avatar,
-          class: vnode.attrs.route === 'member' ? 'v-circle' : ''
+          class: vnode.attrs.route === 'known' ? 'v-circle' : ''
         })
       )
     ),

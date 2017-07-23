@@ -2,9 +2,7 @@
 var v = {
   origin: {
     box: 'https://box.outofindex.com'
-    // org: 'https://json.varnalab.org'
-    // box: 'http://192.168.1.101:3000',
-    // org: 'http://192.168.1.101:3000/varnalab'
+    // box: 'http://192.168.1.101:3000'
   },
   prefix: '',
   layout: {},
@@ -27,20 +25,20 @@ window.addEventListener('DOMContentLoaded', () => {
   m.route(document.querySelector('body'), '/', {
 
     '/': v.route.index(
-      v.module.team(v)
+      v.module.whois(v)
     ),
 
-    '/team': v.route.team(
-      v.module.team(v)
+    '/whois': v.route.whois(
+      v.module.whois(v)
     ),
 
-    '/team/:filter': v.route.team(
-      v.module.team(v)
+    '/whois/:filter': v.route.whois(
+      v.module.whois(v)
     ),
 
-    '/member/:id': v.route.member(
-      v.module.team(v),
-      v.module.member(v)
+    '/known/:id': v.route.known(
+      v.module.whois(v),
+      v.module.known(v)
     )
   })
 })

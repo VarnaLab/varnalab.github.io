@@ -1,15 +1,21 @@
 
-v.module.team = (config) => {
+v.module.whois = (config) => {
   var url = {
-    members: config.origin.box + '/varnalab/members',
-    sponsors: config.origin.box + '/varnalab/stats/sponsors',
-    online: config.origin.box + '/varnalab/online'
+    known: config.origin.box + '/varnalab/whois/known',
+    backers: config.origin.box + '/varnalab/finance/stats/backers',
+    online: {
+      known: config.origin.box + '/varnalab/whois/online/known',
+      unknown: config.origin.box + '/varnalab/whois/online/unknown'
+    }
   }
 
   var state = {
-    members: [],
-    online: {},
-    sponsors: [],
+    known: [],
+    backers: [],
+    online: {
+      known: [],
+      unknown: []
+    },
     all: []
   }
 
@@ -17,50 +23,57 @@ v.module.team = (config) => {
     Promise.all([
       m.request({
         method: 'GET',
-        url: url.members
+        url: url.known
       }),
       m.request({
         method: 'GET',
-        url: url.online
+        url: url.backers
       }),
       m.request({
         method: 'GET',
-        url: url.sponsors
-      })
+        url: url.online.known
+      }),
+      m.request({
+        method: 'GET',
+        url: url.online.unknown
+      }),
     ])
     .then((data) => ({
-      members: data[0],
-      online: data[1],
-      sponsors: data[2]
+      known: data[0],
+      backers: data[1],
+      online: {
+        known: data[2],
+        unknown: data[3]
+      },
     }))
 
-  var members = ({members, online, sponsors}) =>
-    members
-      .map(({id, name, gravatar, sponsor, twitter, github}) => ({
+  var known = ({known, backers, online}) =>
+    known
+      .map(({id, name, gravatar, backer, twitter, github}) => ({
         id,
         name,
         gravatar,
         avatar: 'https://gravatar.com/avatar/' + gravatar +
           '?size=48&d=monsterid',
         online: online.known.includes(id),
-        sponsor: sponsors.find((s) => s.name === sponsor),
+        backer: backers.find((s) => s.name === backer),
         twitter,
         github
       }))
 
-  var missing = ({members, online, sponsors}) =>
+  var missing = ({known, backers}) =>
     (
       (
-        names = members
-          .map((member) => member.sponsor)
+        names = known
+          .map((member) => member.backer)
       ) =>
-      sponsors
-        .filter((sponsor) => !names.includes(sponsor.name))
-        .map((sponsor) => ({
-          name: sponsor.name,
-          sponsor
+      backers
+        .filter((backer) => !names.includes(backer.name))
+        .map((backer) => ({
+          name: backer.name,
+          backer
         }))
     )()
 
-  return {get, members, missing}
+  return {get, known, missing}
 }
