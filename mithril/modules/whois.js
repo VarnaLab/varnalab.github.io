@@ -1,12 +1,9 @@
 
 v.module.whois = (config) => {
   var url = {
-    known: config.origin.box + '/varnalab/whois/known',
-    backers: config.origin.box + '/varnalab/finance/stats/backers',
-    online: {
-      known: config.origin.box + '/varnalab/whois/online/known',
-      unknown: config.origin.box + '/varnalab/whois/online/unknown'
-    }
+    known: config.origin.box + '/whois/known',
+    backers: config.origin.box + '/finance/stats/backers',
+    online: config.origin.box + '/whois/online',
   }
 
   var state = {
@@ -31,20 +28,13 @@ v.module.whois = (config) => {
       }),
       m.request({
         method: 'GET',
-        url: url.online.known
-      }),
-      m.request({
-        method: 'GET',
-        url: url.online.unknown
+        url: url.online
       }),
     ])
     .then((data) => ({
       known: data[0],
       backers: data[1],
-      online: {
-        known: data[2],
-        unknown: data[3]
-      },
+      online: data[2],
     }))
 
   var known = ({known, backers, online}) =>
