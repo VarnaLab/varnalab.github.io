@@ -1,8 +1,9 @@
 
 var v = {
   origin: {
-    box: 'https://box.outofindex.com'
-    // box: 'http://192.168.1.101:3000'
+    box: 'https://simo.varnalab.org/api',
+    org: 'https://api.varnalab.org',
+    // nuc: 'http://192.168.1.101:3000',
   },
   prefix: '',
   layout: {},
