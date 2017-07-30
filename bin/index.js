@@ -72,6 +72,13 @@ else if (argv.build) {
       path.resolve(__dirname, '../mithril/layout.js'), options
     ).code + '\n' +
 
+    fs.readdirSync(path.resolve(__dirname, '../mithril/components/'))
+      .map((file) =>
+        babel.transformFileSync(
+          path.resolve(__dirname, '../mithril/components/', file), options
+        ).code
+      ).join('\n') + '\n' +
+
     fs.readdirSync(path.resolve(__dirname, '../mithril/modules/'))
       .map((file) =>
         babel.transformFileSync(
