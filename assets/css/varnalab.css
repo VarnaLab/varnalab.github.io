@@ -122,3 +122,9 @@ h1 {
 .v-known [class*=icon-] {
   font-size: 40px;
 }
+
+/*unknown icons*/
+.v-unknown .mdc-list-item__start-detail {
+  font-size: 34px;
+  line-height: 40px;
+}

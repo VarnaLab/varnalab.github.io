@@ -30,6 +30,9 @@
       "mithril/index.js",
       "mithril/layout.js",
 
+      "mithril/components/known.js",
+      "mithril/components/unknown.js",
+
       "mithril/modules/index.js",
       "mithril/routes/index.js",
       "mithril/views/index.js",

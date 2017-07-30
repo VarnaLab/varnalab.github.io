@@ -2,14 +2,14 @@
 var v = {
   origin: {
     box: 'https://simo.varnalab.org/api',
-    org: 'https://api.varnalab.org',
-    // nuc: 'http://192.168.1.101:3000',
+    // box: 'http://192.168.1.101:3000/varnalab/api',
   },
   prefix: '',
   layout: {},
   module: {},
   route: {},
-  view: {}
+  view: {},
+  component: {},
 }
 
 

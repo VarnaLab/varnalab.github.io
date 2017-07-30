@@ -18,25 +18,17 @@ v.view.whois = {
   },
   view: (vnode) =>
     m('.mdc-toolbar-fixed-adjust',
-      m('ul.mdc-list mdc-list--avatar-list v-whois',
-        vnode.attrs.known.map((known) =>
-          m('a.mdc-list-item', {
-            key: known.id,
-            href: '/known/' + known.id,
-            oncreate: known.id ? m.route.link : null,
-            onclick: !known.id ? vnode.state.snackbar.open(known) : null
-            },
-            m('img.mdc-list-item__start-detail', {
-              src: known.avatar
-            }),
-            known.name,
-            (known.online || null) &&
-            m('span.mdc-list-item__end-detail material-icons v-online',
-              'power'
-            )
-          )
-        )
-      ),
+
+      (/(whois|online|backers)$/.test(m.route.get()) || null) &&
+      m(v.component.known, Object.assign({}, vnode.attrs, {
+        onclick: vnode.state.snackbar.open
+      })),
+
+      (/unknown$/.test(m.route.get()) || null) &&
+      m(v.component.unknown, Object.assign({}, vnode.attrs, {
+        onclick: vnode.state.snackbar.open
+      })),
+
       m('.mdc-snackbar', {oncreate: vnode.state.snackbar.init},
         m('.mdc-snackbar__text'),
         m('.mdc-snackbar__action-wrapper',

@@ -7,7 +7,8 @@ v.route.whois = (whois) => {
     toolbar: [
       {path: '/whois', icon: 'list'},
       {path: '/whois/online', icon: 'power'},
-      {path: '/whois/backers', icon: 'attach_money'}
+      {path: '/whois/backers', icon: 'attach_money'},
+      {path: '/whois/unknown', icon: 'fingerprint'},
     ],
     all: [],
     missing: [],
@@ -27,7 +28,7 @@ v.route.whois = (whois) => {
         .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
     },
     online: () => {
-      document.title = state.title = '[ Онлайн ]'
+      document.title = state.title = '[ В Лаба ]'
       active(1)
       state.known = state.all
         .filter((known) => known.online)
@@ -40,6 +41,16 @@ v.route.whois = (whois) => {
         .filter((known) => known.backer)
         .concat(state.missing)
         .sort((a, b) => (b.backer.average - a.backer.average))
+    },
+    unknown: () => {
+      document.title = state.title = '[ Гости ]'
+      state.known = state.unknown
+        .map((device) => ({
+          name: device.host,
+          vendor: device.vendor,
+          icon: /android|i?phone/i.test(device.host) ? 'smartphone' : 'laptop'
+        }))
+      active(3)
     }
   }
 
@@ -49,6 +60,7 @@ v.route.whois = (whois) => {
         whois.loaded = true
         state.all = whois.known(data)
         state.missing = whois.missing(data)
+        state.unknown = data.online.unknown
         filter[args.filter || 'all']()
         m.redraw()
       })
