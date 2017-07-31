@@ -1,5 +1,5 @@
 
-v.component.known = {
+v.component.users = {
   view: (vnode) =>
     m('ul.mdc-list mdc-list--avatar-list v-known',
       vnode.attrs.known.map((known) =>
