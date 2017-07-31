@@ -1,5 +1,5 @@
 
-v.module.known = (config) => {
+v.module.user = (config) => {
 
   var social = (known) =>
     Object.keys(known)

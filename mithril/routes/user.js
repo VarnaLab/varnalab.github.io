@@ -1,5 +1,5 @@
 
-v.route.known = (whois, known) => {
+v.route.user = (whois, known) => {
   var state = {
     route: 'known',
     title: '[ ]',
@@ -38,7 +38,7 @@ v.route.known = (whois, known) => {
   }
 
   var render = (vnode) => {
-    return m(v.layout, state, m(v.view.known, state))
+    return m(v.layout, state, m(v.view.user, state))
   }
 
   return {onmatch, render}

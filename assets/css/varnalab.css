@@ -132,3 +132,10 @@ h1 {
   font-size: 34px;
   line-height: 40px;
 }
+
+.v-add-known {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1;
+}

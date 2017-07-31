@@ -5,7 +5,7 @@ v.component.users = {
       vnode.attrs.known.map((known) =>
         m('a.mdc-list-item', {
           key: known.id,
-          href: '/known/' + known.id,
+          href: '/user/' + known.id,
           oncreate: known.id ? m.route.link : null,
           onclick: !known.id ? vnode.attrs.onclick(known) : null
           },

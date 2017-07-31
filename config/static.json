@@ -7,7 +7,9 @@
       "https://fonts.googleapis.com/icon?family=Material+Icons",
       "assets/fonts/font-awesome/css/fontello.css",
 
+      "node_modules/@material/button/dist/mdc.button.min.css",
       "node_modules/@material/drawer/dist/mdc.drawer.min.css",
+      "node_modules/@material/fab/dist/mdc.fab.min.css",
       "node_modules/@material/list/dist/mdc.list.min.css",
       "node_modules/@material/menu/dist/mdc.menu.min.css",
       "node_modules/@material/ripple/dist/mdc.ripple.min.css",
@@ -30,8 +32,8 @@
       "mithril/index.js",
       "mithril/layout.js",
 
-      "mithril/components/known.js",
-      "mithril/components/unknown.js",
+      "mithril/components/users.js",
+      "mithril/components/devices.js",
 
       "mithril/modules/index.js",
       "mithril/routes/index.js",
@@ -41,9 +43,9 @@
       "mithril/routes/whois.js",
       "mithril/views/whois.js",
 
-      "mithril/modules/known.js",
-      "mithril/routes/known.js",
-      "mithril/views/known.js"
+      "mithril/modules/user.js",
+      "mithril/routes/user.js",
+      "mithril/views/user.js"
     ]
   },
   "production": {

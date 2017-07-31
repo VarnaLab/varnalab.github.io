@@ -1,5 +1,5 @@
 
-v.view.known = {
+v.view.user = {
   view: (vnode) =>
     m('.mdc-toolbar-fixed-adjust v-known',
       m('h1.mdc-typography--headline', '[ ', vnode.attrs.known.name, ' ]'),
