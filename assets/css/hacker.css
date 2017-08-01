@@ -1,0 +1,44 @@
+
+/*theme*/
+
+.hacker { background: #000; color: #64dd17; }
+
+/*toolbar*/
+
+.hacker .v-toolbar { background: #000; color: #64dd17; }
+.hacker .v-toolbar a { color: #64dd17; }
+
+/*drawer*/
+
+.hacker .v-drawer h1 { color: #64dd17; }
+.hacker .v-drawer nav { background: #64dd17; }
+.hacker .v-drawer a,
+.hacker .v-drawer i { color: #000; }
+.hacker .v-drawer .active { background: #000; color: #64dd17; }
+.hacker .v-drawer .active i { color: #64dd17; }
+
+/*menu*/
+
+.hacker .v-menu { background: #64dd17; }
+.hacker .v-menu li { color: #000; }
+.hacker .v-menu .active { background: #000; color: #64dd17; }
+
+/*list*/
+
+.hacker .v-list a { color: #64dd17; }
+.hacker .v-list .mdc-list-item__text__secondary { color: #64dd17; opacity: .7; }
+
+/*fab*/
+
+.hacker .v-fab { background: #64dd17; color: #000; }
+
+/*dialog*/
+
+.hacker .v-dialog { background: #64dd17; color: #000; }
+.hacker .v-dialog .mdc-dialog__body { border-color: #000; }
+
+/*textfield*/
+
+.hacker .v-textfield input,
+.hacker .v-textfield label { color: #64dd17; }
+.hacker .v-textfield:after { background: #64dd17 !important; }

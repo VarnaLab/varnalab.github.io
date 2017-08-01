@@ -1,12 +1,12 @@
 
-/*main content*/
+/*global*/
 
+/*main content*/
 .mdc-toolbar-fixed-adjust {
   margin-top: 230px !important; /*should be before @media!*/
 }
 
 /*desktop*/
-
 @media (min-width: 400px) {
   body {
     width: 400px;
@@ -24,67 +24,65 @@
   }
 }
 
-/*theme*/
-
-.v-dark,
-.v-dark .mdc-simple-menu,
-.v-dark .mdc-temporary-drawer__content {
-  background: #000;
-}
-
-.v-dark,
-.v-dark .mdc-list,
-.v-dark .mdc-list-item i.material-icons {
-  color: #fcfefb;
-}
-.v-dark .mdc-list-item__text__secondary {
-  color: #b0b0b0;
-}
-
 /*all headers*/
 h1 {
   text-align: center;
 }
 
-/*toolbar header scroll*/
+/*fab*/
+.v-fab {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1;
+}
 
-.mdc-temporary-drawer__header-content,
-.mdc-toolbar__row:first-child::after {
-  background-image: url("../images/matrix.png");
+
+/*toolbar*/
+
+/*toolbar header scroll*/
+.v-drawer .mdc-temporary-drawer__header-content,
+.v-toolbar .mdc-toolbar__row:first-child::after {
+  background-image: url('../images/matrix.png');
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
 }
-
-.mdc-toolbar__row {
-  background-color: #000;
+.v-toolbar .mdc-toolbar__row {
   overflow: hidden;
 }
-
-.mdc-toolbar__row img {
+.v-toolbar .mdc-toolbar__row img {
   position: relative;
   z-index: 1;
   display: none;
   transition: all .1s;
   box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.5);
 }
-
-.mdc-toolbar__row img.v-circle {
+.v-toolbar .mdc-toolbar__row img.v-circle {
   border-radius: 50%;
 }
 
 /*toolbar header title*/
-
-.mdc-toolbar__title {
+.v-toolbar .mdc-toolbar__title {
   opacity: 0;
   transition: all .1s;
 }
-
-.mdc-toolbar__section {
+.v-toolbar .mdc-toolbar__section {
   z-index: 2;
 }
 
+/*whois filter*/
+.v-toolbar .mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
+.v-toolbar .mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
+.v-toolbar .mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
+.v-toolbar .mdc-toolbar__icon.active:nth-of-type(4) { color: #EF2D56; }
+
+
 /*drawer*/
+
+.v-drawer {
+  z-index: 4;
+}
 .v-drawer .mdc-typography--display1 {
   display: flex;
   align-items: center;
@@ -94,48 +92,48 @@ h1 {
 .v-drawer .mdc-list-item {
   font-size: 1rem;
 }
-.v-drawer .active {
-  background: #9C9CAD;
+
+
+/*textfield*/
+
+.v-textfield {
+  width: 100%;
 }
 
-/*theme menu*/
-
-.mdc-simple-menu .active {
-  background: #9C9CAD;
+.v-textfield input {
+  display: block;
+  width: 100%;
 }
 
-/*whois filter*/
-.mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
-.mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
-.mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
-.mdc-toolbar__icon.active:nth-of-type(4) { color: #EF2D56; }
 
-/*whois list icons*/
+/*list*/
 
+/*whois known*/
 .v-whois .mdc-list-item__end-detail {
   width: auto;
   height: auto;
   margin-right: 0;
 }
 
-.v-online {
-  color: #44CF6C;
-}
-
-/*known social icons*/
-.v-known [class*=icon-] {
-  font-size: 40px;
-}
-
-/*unknown icons*/
+/*whois unknown*/
 .v-unknown .mdc-list-item__start-detail {
   font-size: 34px;
   line-height: 40px;
 }
 
-.v-add-known {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 1;
+/*online indicator*/
+.v-online {
+  color: #44CF6C;
+}
+
+/*known user - social icons*/
+.v-known [class*=icon-] {
+  font-size: 40px;
+}
+
+
+/*dialog*/
+
+.v-dialog {
+  z-index: 5;
 }

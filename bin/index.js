@@ -44,9 +44,12 @@ else if (argv.build) {
 
   fs.writeFileSync(
     path.resolve(process.cwd(), argv.build, 'varnalab.min.css'),
-    csso.minify(
-      fs.readFileSync(path.resolve(__dirname, '../assets/css/varnalab.css'), 'utf8')
-    ).css,
+    fs.readdirSync(path.resolve(__dirname, '../assets/css/'))
+      .map((file) =>
+        csso.minify(
+          fs.readFileSync(path.resolve(__dirname, '../assets/css/' + file), 'utf8')
+        ).css
+      ).join('\n'),
     'utf8'
   )
 

@@ -1,0 +1,43 @@
+
+/*theme*/
+
+.light { background: #fff; color: #000; }
+
+/*toolbar*/
+
+.light .v-toolbar { background: #000; color: #fff; }
+
+/*drawer*/
+
+.light .v-drawer h1 { color: #fff; }
+.light .v-drawer nav { background: #000; }
+.light .v-drawer a,
+.light .v-drawer i { color: #fff; }
+.light .v-drawer .active { background: #fff; color: #000; }
+.light .v-drawer .active i { color: #000; }
+
+/*menu*/
+
+.light .v-menu { background: #000; }
+.light .v-menu li { color: #fff; }
+.light .v-menu .active { background: #fff; color: #000; }
+
+/*list*/
+
+.light .v-list a { color: #000; }
+.light .v-list .mdc-list-item__text__secondary { color: #000; opacity: .7; }
+
+/*fab*/
+
+.light .v-fab { background: #000; color: #fff; }
+
+/*dialog*/
+
+.light .v-dialog { background: #000; color: #fff; }
+.light .v-dialog .mdc-dialog__body { border-color: #fff; }
+
+/*textfield*/
+
+.light .v-textfield input,
+.light .v-textfield label { color: #000; }
+.light .v-textfield:after { background: #000 !important; }
