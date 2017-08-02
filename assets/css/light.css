@@ -35,6 +35,8 @@
 
 .light .v-dialog { background: #000; color: #fff; }
 .light .v-dialog .mdc-dialog__body { border-color: #fff; }
+.light .v-dialog .mdc-list-item { color: #fff; }
+.light .v-dialog button { color: #fff; }
 
 /*textfield*/
 

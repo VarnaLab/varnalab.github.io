@@ -29,13 +29,13 @@ h1 {
   text-align: center;
 }
 
-/*fab*/
-.v-fab {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 1;
-}
+/*z-index*/
+.v-toolbar { z-index: 1; }
+.v-fab { z-index: 1; position: fixed; bottom: 1rem; right: 1rem; }
+.v-snackbar { z-index: 2; }
+.v-dialog { z-index: 3; }
+.v-drawer { z-index: 4; }
+
 
 
 /*toolbar*/
@@ -79,10 +79,6 @@ h1 {
 
 
 /*drawer*/
-
-.v-drawer {
-  z-index: 4;
-}
 .v-drawer .mdc-typography--display1 {
   display: flex;
   align-items: center;
@@ -133,7 +129,9 @@ h1 {
 
 
 /*dialog*/
-
-.v-dialog {
-  z-index: 5;
+.v-dialog li {
+  height: auto;
+}
+.v-dialog li strong {
+  padding-right: 10px;
 }

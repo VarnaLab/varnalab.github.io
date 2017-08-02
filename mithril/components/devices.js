@@ -1,12 +1,12 @@
 
 v.component.devices = {
   view: (vnode) =>
-    m('ul.mdc-list mdc-list--avatar-list v-unknown',
+    m('ul.mdc-list mdc-list--avatar-list v-list v-unknown',
       vnode.attrs.known.map((device) =>
         m('a.mdc-list-item', {
           key: device.id,
           href: '#',
-          onclick: vnode.attrs.onclick(device)
+          // onclick: vnode.attrs.onclick(device)
           },
           m('span.mdc-list-item__start-detail material-icons',
             device.icon

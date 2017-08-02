@@ -1,19 +1,6 @@
 
 v.route.whois = (whois) => {
-  var state = {
-    route: 'whois',
-    title: '[ ]',
-    avatar: v.prefix + '/assets/images/logo.png',
-    toolbar: [
-      {path: '/whois', icon: 'list'},
-      {path: '/whois/online', icon: 'power'},
-      {path: '/whois/backers', icon: 'attach_money'},
-      {path: '/whois/unknown', icon: 'fingerprint'},
-    ],
-    all: [],
-    missing: [],
-    known: []
-  }
+  var state
 
   function active (index) {
     state.toolbar.forEach((item) => item.active = false)
@@ -54,21 +41,37 @@ v.route.whois = (whois) => {
     }
   }
 
-  var onmatch = (args, requestedUrl) => {
-    whois.get()
-      .then((data) => {
-        whois.loaded = true
-        state.all = whois.known(data)
-        state.missing = whois.missing(data)
-        state.unknown = data.online.unknown
-        filter[args.filter || 'all']()
-        m.redraw()
-      })
+  var onmatch = (args, url) => {
+    state = Object.assign({}, v.state, {
+      route: 'whois',
+      all: [],
+      missing: [],
+      known: [],
+
+      toolbar: [
+        {path: '/whois', icon: 'list'},
+        {path: '/whois/online', icon: 'power'},
+        {path: '/whois/backers', icon: 'attach_money'},
+        {path: '/whois/unknown', icon: 'fingerprint'},
+      ],
+    })
+    whois.get().then((data) => {
+      whois.loaded = true
+      state.all = whois.known(data)
+      state.missing = whois.missing(data)
+      state.unknown = data.online.unknown
+      filter[args.filter || 'all']()
+      m.redraw()
+    })
   }
 
-  var render = (vnode) => {
-    return m(v.layout, state, m(v.view.whois, state))
-  }
+  var render = (vnode) => [
+    m(v.component.toolbar, state),
+    m(v.component.drawer, state),
+    m(v.component.snackbar, state),
+    m(v.component.fab, state),
+    m(v.view.whois, state),
+  ]
 
   return {onmatch, render}
 }

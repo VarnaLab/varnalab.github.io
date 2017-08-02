@@ -1,23 +1,17 @@
 
 v.route.user = (whois, known) => {
-  var state = {
-    route: 'known',
-    title: '[ ]',
-    avatar: '',
-    toolbar: [
-      {path: '/whois', icon: 'directions_run'}
-    ],
-    known: {},
-    social: []
-  }
+  var state
 
-  var onmatch = (args, requestedUrl) => {
+  var onmatch = (args, url) => {
+    state = Object.assign({}, v.state, {
+      route: 'known',
+      title: '',
+      avatar: '',
+      known: {},
+      social: [],
+    })
+
     window.scrollTo(0, 0)
-
-    state.title = ''
-    state.avatar = ''
-    state.known = {}
-    state.social = []
 
     whois.get().then((data) => {
 
@@ -27,8 +21,8 @@ v.route.user = (whois, known) => {
       whois.loaded = true
 
       state.title = '[ ' + state.known.name + ' ]'
-      state.avatar = 'https://gravatar.com/avatar/' + state.known.gravatar +
-        '?size=150&d=monsterid'
+      state.avatar = 'https://gravatar.com/avatar/'
+        + state.known.gravatar + '?size=150&d=monsterid'
       document.title = state.title
 
       state.social = known.social(state.known)
@@ -37,9 +31,11 @@ v.route.user = (whois, known) => {
     .catch((err) => console.error(err))
   }
 
-  var render = (vnode) => {
-    return m(v.layout, state, m(v.view.user, state))
-  }
+  var render = (vnode) => [
+    m(v.component.toolbar, state),
+    m(v.component.drawer, state),
+    m(v.view.user, state)
+  ]
 
   return {onmatch, render}
 }

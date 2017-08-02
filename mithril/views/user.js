@@ -1,10 +1,10 @@
 
 v.view.user = {
   view: (vnode) =>
-    m('.mdc-toolbar-fixed-adjust v-known',
+    m('main.mdc-toolbar-fixed-adjust v-known',
       m('h1.mdc-typography--headline', '[ ', vnode.attrs.known.name, ' ]'),
 
-      m('ul.mdc-list mdc-list--avatar-list',
+      m('ul.mdc-list mdc-list--avatar-list v-list',
         vnode.attrs.social.map((provider) =>
           m('a.mdc-list-item', {
               href: provider.url
