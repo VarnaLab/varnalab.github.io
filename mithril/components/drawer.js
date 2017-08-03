@@ -27,20 +27,24 @@ v.component.drawer = {
           )
         ),
         m('nav.mdc-temporary-drawer__content mdc-list-group',
-          m('.mdc-list', vnode.attrs.drawer.items.map((item) =>
-            m('a.mdc-list-item', {
-              href: item.path,
-              oncreate: vnode.state.onclick,
-              class: item.route === vnode.attrs.route ? 'active' : null
-              },
-              m('i.material-icons mdc-list-item__start-detail', {
-                'aria-hidden': true
+          vnode.attrs.drawer.items.map((items, index) => [
+            m('.mdc-list', items.map((item) =>
+              m('a.mdc-list-item', {
+                href: item.path,
+                oncreate: vnode.state.onclick,
+                class: item.route === vnode.attrs.route ? 'active' : null
                 },
-                item.icon
-              ),
-              item.text
-            )
-          ))
+                m('i.material-icons mdc-list-item__start-detail', {
+                  'aria-hidden': true
+                  },
+                  item.icon
+                ),
+                item.text
+              )
+            )),
+            (index !== items.length) &&
+            m('hr.mdc-list-divider')
+          ])
         )
       )
     )

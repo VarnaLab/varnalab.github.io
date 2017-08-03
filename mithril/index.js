@@ -1,9 +1,27 @@
 
+if (location.search) {
+  var qs = location.search.replace('?', '').split('&')
+    .reduce((qs, pair) => (
+      ([key, value] = pair.split('=')) => (qs[key] = value, qs)
+    )(), {})
+
+  if (qs.login) {
+    localStorage.setItem('v-login', qs.login)
+  }
+  if (qs.admin) {
+    localStorage.setItem('v-admin', qs.admin)
+  }
+  if (qs.jwt) {
+    localStorage.setItem('v-jwt', qs.jwt)
+  }
+
+  window.location = '/'
+}
+
+
 var v = {
-  origin: {
-    box: 'https://simo.varnalab.org/api',
-    // box: 'http://192.168.1.101:3000/varnalab/api',
-  },
+  origin: 'https://simo.varnalab.org/api',
+  // origin: 'http://192.168.1.101:3000/varnalab/api',
   prefix: '',
 
   module: {},
@@ -12,7 +30,9 @@ var v = {
   component: {},
 
   state: {
+    login: localStorage.getItem('v-login'),
     admin: localStorage.getItem('v-admin'),
+    jwt: localStorage.getItem('v-jwt'),
     theme: localStorage.getItem('v-theme'),
 
     route: '',
@@ -31,8 +51,13 @@ var v = {
     },
     drawer: {
       items: [
-        {path: '/', icon: 'refresh', text: '[ Начало ]', route: 'index'},
-        {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'}
+        [
+          {path: '/', icon: 'refresh', text: '[ Начало ]', route: 'index'},
+          {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'}
+        ],
+        [
+          {path: '/login', icon: 'lock_open', text: '[ Влез ]', route: 'login'},
+        ],
       ]
     },
     fab: {},
@@ -81,6 +106,10 @@ window.addEventListener('DOMContentLoaded', () => {
       v.module.whois(v),
       v.module.user(v)
     ),
+
+    '/login': {
+      onmatch: () => window.location = v.origin + '/auth/login'
+    }
 
   })
 })

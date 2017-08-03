@@ -1,9 +1,9 @@
 
 v.module.whois = (config) => {
   var url = {
-    known: config.origin.box + '/whois/known',
-    backers: config.origin.box + '/finance/stats/backers',
-    online: config.origin.box + '/whois/online',
+    known: config.origin + '/whois/known',
+    backers: config.origin + '/finance/stats/backers',
+    online: config.origin + '/whois/online',
   }
 
   var state = {
