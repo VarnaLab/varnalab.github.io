@@ -75,10 +75,10 @@ v.module.whois = (config) => {
         .filter((known) => known.online)
         .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0)),
 
-    backers: (known) =>
+    backers: (known, missing) =>
       known
         .filter((known) => known.backer)
-        .concat(state.missing)
+        .concat(missing)
         .sort((a, b) => (b.backer.average - a.backer.average)),
 
     unknown: (unknown) =>

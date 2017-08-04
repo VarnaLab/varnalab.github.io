@@ -21,7 +21,7 @@ v.route.whois = (whois) => {
     backers: () => {
       document.title = state.title = '[ Дарители ]'
       active(2)
-      state.known = whois.filter.backers(state.all)
+      state.known = whois.filter.backers(state.all, state.missing)
     },
     unknown: () => {
       document.title = state.title = '[ Гости ]'
