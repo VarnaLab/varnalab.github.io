@@ -2,7 +2,7 @@
 v.component.devices = {
   view: (vnode) =>
     m('ul.mdc-list mdc-list--avatar-list v-list v-unknown',
-      vnode.attrs.known.map((device) =>
+      vnode.attrs.devices.map((device) =>
         m('a.mdc-list-item', {
           key: device.id,
           href: '#',

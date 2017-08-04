@@ -65,5 +65,48 @@ v.module.whois = (config) => {
         }))
     )()
 
-  return {get, known, missing}
+  var filter = {
+    all: (known) =>
+      known
+        .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0)),
+
+    online: (known) =>
+      known
+        .filter((known) => known.online)
+        .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0)),
+
+    backers: (known) =>
+      known
+        .filter((known) => known.backer)
+        .concat(state.missing)
+        .sort((a, b) => (b.backer.average - a.backer.average)),
+
+    unknown: (unknown) =>
+      unknown
+        .map((device) => ({
+          name: device.host,
+          vendor: device.vendor,
+          icon: /android|i?phone/i.test(device.host) ? 'smartphone' : 'laptop'
+        }))
+  }
+
+  var sort = (devices) => {
+    var phones = devices
+      .filter((device) => device.host && /android|i?phone/i.test(device.host))
+      .sort((a, b) => (
+        a.host.toLowerCase() > b.host.toLowerCase() ? 1 :
+        a.host.toLowerCase() < b.host.toLowerCase() ? -1 : 0))
+
+    var other = devices
+      .filter((device) => device.host && !/android|i?phone/i.test(device.host))
+      .sort((a, b) => (
+        a.host.toLowerCase() > b.host.toLowerCase() ? 1 :
+        a.host.toLowerCase() < b.host.toLowerCase() ? -1 : 0))
+
+    var nohost = devices.filter((device) => !device.host)
+
+    return phones.concat(other).concat(nohost)
+  }
+
+  return {get, known, missing, filter, sort}
 }

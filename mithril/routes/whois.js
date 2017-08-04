@@ -11,33 +11,22 @@ v.route.whois = (whois) => {
     all: () => {
       document.title = state.title = '[ Хора ]'
       active(0)
-      state.known = state.all
-        .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+      state.known = whois.filter.all(state.all)
     },
     online: () => {
       document.title = state.title = '[ В Лаба ]'
       active(1)
-      state.known = state.all
-        .filter((known) => known.online)
-        .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+      state.known = whois.filter.online(state.all)
     },
     backers: () => {
       document.title = state.title = '[ Дарители ]'
       active(2)
-      state.known = state.all
-        .filter((known) => known.backer)
-        .concat(state.missing)
-        .sort((a, b) => (b.backer.average - a.backer.average))
+      state.known = whois.filter.backers(state.all)
     },
     unknown: () => {
       document.title = state.title = '[ Гости ]'
-      state.known = state.unknown
-        .map((device) => ({
-          name: device.host,
-          vendor: device.vendor,
-          icon: /android|i?phone/i.test(device.host) ? 'smartphone' : 'laptop'
-        }))
       active(3)
+      state.devices = whois.filter.unknown(whois.sort(state.unknown))
     }
   }
 
@@ -47,6 +36,7 @@ v.route.whois = (whois) => {
       all: [],
       missing: [],
       known: [],
+      devices: [],
 
       toolbar: [
         {path: '/whois', icon: 'list'},

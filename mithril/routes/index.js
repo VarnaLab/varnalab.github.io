@@ -6,15 +6,20 @@ v.route.index = (whois) => {
     state = Object.assign({}, v.state, {
       route: 'index',
       title: '[ VarnaLab ]',
+      all: [],
       known: [],
+      devices: [],
     })
 
     window.scrollTo(0, 0)
     document.title = state.title
 
     whois.get().then((data) => {
-      state.known = whois.known(data)
-        .filter((member) => member.online)
+      state.all = whois.known(data)
+
+      state.known = whois.filter.online(state.all)
+      state.devices = whois.filter.unknown(whois.sort(data.online.unknown))
+
       whois.loaded = true
       m.redraw()
     })
