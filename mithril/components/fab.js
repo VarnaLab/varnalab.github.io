@@ -6,7 +6,9 @@ v.component.fab = {
     }
   },
   oncreate: (vnode) => {
-    var fab = mdc.ripple.MDCRipple.attachTo(vnode.dom)
+    if (vnode.dom) {
+      var fab = mdc.ripple.MDCRipple.attachTo(vnode.dom)
+    }
   },
   view: (vnode) => [
     (v.state.admin || null) &&
