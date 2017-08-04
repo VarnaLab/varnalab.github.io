@@ -21,7 +21,6 @@ if (location.search) {
 
 var v = {
   origin: 'https://simo.varnalab.org/api',
-  // origin: 'http://192.168.1.101:3000/varnalab/api',
   prefix: '',
 
   module: {},
@@ -67,21 +66,24 @@ var v = {
 }
 
 
+if (location.host === 'box.outofindex.com') {
+  v.prefix = '/varnalab/app'
+  m.route.prefix(v.prefix)
+}
+
+if (location.protocol === 'file:') {
+  v.prefix = '/android_asset/www'
+}
+
+if (location.host === 'ssd' || location.host ===  '192.168.1.101:8001') {
+  v.state.avatar = v.state.avatar.slice(1)
+  v.origin = 'http://192.168.1.101:3000/varnalab/api'
+}
+
+v.state.avatar = v.prefix + v.state.avatar
+
+
 window.addEventListener('DOMContentLoaded', () => {
-
-  if (location.host === 'box.outofindex.com') {
-    v.prefix = '/varnalab/app'
-    m.route.prefix(v.prefix)
-  }
-  else if (location.protocol === 'file:') {
-    v.prefix = '/android_asset/www'
-  }
-
-  if (location.host === 'ssd') {
-    v.state.avatar = v.state.avatar.slice(1)
-  }
-  v.state.avatar = v.prefix + v.state.avatar
-
 
   m.route(document.querySelector('body'), '/', {
 
