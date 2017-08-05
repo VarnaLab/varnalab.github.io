@@ -42,7 +42,7 @@ v.component.drawer = {
                 item.text
               )
             )),
-            (index !== items.length) &&
+            (index < items.length - 1) &&
             m('hr.mdc-list-divider')
           ])
         )
