@@ -65,6 +65,12 @@
       "css": "wikipedia",
       "code": 62054,
       "src": "fontawesome"
+    },
+    {
+      "uid": "809f2374b759f5b9278ac6307e690ba4",
+      "css": "android",
+      "code": 61819,
+      "src": "fontawesome"
     }
   ]
 }
