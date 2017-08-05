@@ -38,14 +38,15 @@
 
       "mithril/index.js",
 
-      "mithril/components/toolbar.js",
-      "mithril/components/drawer.js",
-      "mithril/components/menu.js",
       "mithril/components/dialog.js",
+      "mithril/components/drawer.js",
       "mithril/components/fab.js",
+      "mithril/components/list-devices.js",
+      "mithril/components/list-links.js",
+      "mithril/components/list-users.js",
+      "mithril/components/menu.js",
       "mithril/components/snackbar.js",
-      "mithril/components/users.js",
-      "mithril/components/devices.js",
+      "mithril/components/toolbar.js",
 
       "mithril/modules/index.js",
       "mithril/routes/index.js",
@@ -61,7 +62,10 @@
 
       "mithril/modules/edit.js",
       "mithril/routes/edit.js",
-      "mithril/views/edit.js"
+      "mithril/views/edit.js",
+
+      "mithril/routes/lab.js",
+      "mithril/views/lab.js"
     ]
   },
   "production": {

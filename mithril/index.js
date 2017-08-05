@@ -52,13 +52,34 @@ var v = {
       items: [
         [
           {path: '/', icon: 'refresh', text: '[ Начало ]', route: 'index'},
-          {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'}
+          {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'},
+          {path: '/lab', icon: 'lightbulb_outline', text: '[ За Лаба ]', route: 'lab'},
         ],
         [
           {path: '/login', icon: 'lock_open', text: '[ Влез ]', route: 'login'},
         ],
       ]
     },
+    links: [
+      [
+        {id: 'facebook-page', title: 'Facebook Страница', url: 'https://www.facebook.com/varnalab', icon: 'facebook'},
+        {id: 'facebook-group', title: 'Facebook Група', url: 'https://www.facebook.com/groups/varnalab/', icon: 'facebook'},
+        {id: 'twitter', title: 'Twitter', url: 'https://twitter.com/varnalab', icon: 'twitter'},
+        {id: 'trello', title: 'Trello', url: 'https://trello.com/varnalab', icon: 'trello'},
+        {id: 'github', title: 'GitHub', url: 'https://github.com/varnalab', icon: 'github'},
+        {id: 'slack', title: 'Slack', url: 'https://varnalab.slack.com', icon: 'slack'},
+        {id: 'wiki', title: 'Wiki', url: 'https://wiki.varnalab.org', icon: 'wikipedia'},
+      ],
+      [
+        {id: 'slack-invitation', title: 'Покана за Slack', url: 'https://slack.varnalab.org', icon: 'slack'},
+        {id: 'github-invitation', title: 'Покана за GitHub', url: 'https://github.varnalab.org', icon: 'github'},
+        {id: 'mobile-app', title: 'Мобилно Приложение', url: 'https://varnalab.github.io', icon: 'mobile'},
+      ],
+      [
+        {id: 'group-email', title: 'varna-lab@googlegroups.com', url: 'mailto:varna-lab@googlegroups.com', icon: 'email'},
+        {id: 'hq-email', title: 'hq@varnalab.org', url: 'mailto:hq@varnalab.org', icon: 'email'},
+      ],
+    ],
     fab: {},
     snackbar: {},
     dialog: {},
@@ -111,7 +132,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     '/login': {
       onmatch: () => window.location = v.origin + '/auth/login'
-    }
+    },
+
+    '/lab': v.route.lab()
 
   })
 })
