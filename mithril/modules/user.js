@@ -6,16 +6,18 @@ v.module.user = (config) => {
       .reduce((social, key) => {
         if (key === 'github' && known[key]) {
           social.push({
+            id: 'github',
+            title: 'GitHub',
+            url: 'https://github.com/' + known[key],
             icon: 'github',
-            name: 'GitHub',
-            url: 'https://github.com/' + known[key]
           })
         }
         else if (key === 'twitter' && known[key]) {
           social.push({
+            id: 'twitter',
+            title: 'Twitter',
+            url: 'https://twitter.com/' + known[key],
             icon: 'twitter',
-            name: 'Twitter',
-            url: 'https://twitter.com/' + known[key]
           })
         }
         return social

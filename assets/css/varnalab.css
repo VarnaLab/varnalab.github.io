@@ -122,9 +122,21 @@ h1 {
   color: #44CF6C;
 }
 
-/*known user - social icons*/
-.v-known [class*=icon-] {
+/*list-links*/
+.v-links [class*=icon-] {
   font-size: 40px;
+}
+.v-links .icon-trello {
+  font-size: 38px;
+}
+.v-links .icon-slack {
+  font-size: 35px; position: relative; top: 4px; left: 2px;
+}
+.v-links .icon-wikipedia {
+  font-size: 30px; position: relative; top: 2px;
+}
+.v-links .icon-email {
+  font-size: 30px; position: relative; top: 4px; left: 4px;
 }
 
 

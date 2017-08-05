@@ -25,7 +25,7 @@ v.route.user = (whois, known) => {
         + state.known.gravatar + '?size=150&d=monsterid'
       document.title = state.title
 
-      state.social = known.social(state.known)
+      state.links = [known.social(state.known)]
       m.redraw()
     })
     .catch((err) => console.error(err))

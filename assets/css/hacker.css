@@ -27,6 +27,7 @@
 
 .hacker .v-list a { color: #64dd17; }
 .hacker .v-list .mdc-list-item__text__secondary { color: #64dd17; opacity: .7; }
+.hacker .v-list + .mdc-list-divider { background: #64dd17; opacity: .7; }
 
 /*fab*/
 
