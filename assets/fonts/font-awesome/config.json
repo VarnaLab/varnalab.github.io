@@ -71,6 +71,18 @@
       "css": "android",
       "code": 61819,
       "src": "fontawesome"
+    },
+    {
+      "uid": "i6ej1r6t84xouh0dct7g9zyx3ya9s9eg",
+      "css": "www",
+      "code": 59393,
+      "src": "modernpics"
+    },
+    {
+      "uid": "0d08dbb1dd648a43bdea81b7e6c9e036",
+      "css": "location",
+      "code": 59394,
+      "src": "fontawesome"
     }
   ]
 }
