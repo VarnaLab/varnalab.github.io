@@ -11,10 +11,11 @@
 
 .light .v-drawer h1 { color: #fff; }
 .light .v-drawer nav { background: #000; }
-.light .v-drawer a,
-.light .v-drawer i { color: #fff; }
-.light .v-drawer .active { background: #fff; color: #000; }
-.light .v-drawer .active i { color: #000; }
+.light .v-drawer .v-list a,
+.light .v-drawer .v-list i { color: #fff; }
+.light .v-drawer .v-list .active { background: #fff; color: #000; }
+.light .v-drawer .v-list .active i { color: #000; }
+.light .v-drawer .v-list + .mdc-list-divider { background: #fff; opacity: .7; }
 
 /*menu*/
 

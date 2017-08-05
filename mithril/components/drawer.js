@@ -28,7 +28,7 @@ v.component.drawer = {
         ),
         m('nav.mdc-temporary-drawer__content mdc-list-group',
           vnode.attrs.drawer.items.map((items, index) => [
-            m('.mdc-list', items.map((item) =>
+            m('.mdc-list v-list', items.map((item) =>
               m('a.mdc-list-item', {
                 href: item.path,
                 oncreate: vnode.state.onclick,
