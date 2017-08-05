@@ -123,6 +123,9 @@ h1 {
 .v-links [class*=icon-] {
   font-size: 40px;
 }
+.v-links [class*=icon-]:before {
+  margin-left: 0;
+}
 .v-links .icon-trello {
   font-size: 38px;
 }
@@ -149,6 +152,6 @@ h1 {
 }
 
 /*lab*/
-.v-lab {
+.v-lab p {
   text-align: center;
 }

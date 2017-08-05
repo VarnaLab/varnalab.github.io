@@ -25,7 +25,7 @@
 
 /*list*/
 
-.light .v-list a { color: #000; }
+.light .v-list .mdc-list-item { color: #000; }
 .light .v-list .mdc-list-item__text__secondary { color: #000; opacity: .7; }
 .light .v-list + .mdc-list-divider { background: #000; opacity: .7; }
 
