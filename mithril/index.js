@@ -62,24 +62,27 @@ var v = {
     },
     links: [
       [
+        {id: 'location', title: 'гр. Варна', subtitle: 'ул. Пенчо Славейков № 50', url: 'https://www.google.com/maps/place/VarnaLab/@43.21669,27.904608,16z/data=!4m5!3m4!1s0x0:0xf9c0fd8622b636aa!8m2!3d43.2166902!4d27.9046083?hl=en-US', icon: 'location'},
+        {id: 'hq-email', title: 'hq@varnalab.org', url: 'mailto:hq@varnalab.org', icon: 'email'},
+        {id: 'website', title: 'WebSite', url: 'https://varnalab.org', icon: 'www'},
+      ],
+      [
         {id: 'facebook-page', title: 'Facebook Страница', url: 'https://www.facebook.com/varnalab', icon: 'facebook'},
         {id: 'facebook-group', title: 'Facebook Група', url: 'https://www.facebook.com/groups/varnalab/', icon: 'facebook'},
         {id: 'twitter', title: 'Twitter', url: 'https://twitter.com/varnalab', icon: 'twitter'},
-        {id: 'trello', title: 'Trello', url: 'https://trello.com/varnalab', icon: 'trello'},
+        {id: 'group-email', title: 'varna-lab@googlegroups.com', url: 'mailto:varna-lab@googlegroups.com', icon: 'email'},
+      ],
+      [
         {id: 'github', title: 'GitHub', url: 'https://github.com/varnalab', icon: 'github'},
+        {id: 'trello', title: 'Trello', url: 'https://trello.com/varnalab', icon: 'trello'},
         {id: 'slack', title: 'Slack', url: 'https://varnalab.slack.com', icon: 'slack'},
         {id: 'wiki', title: 'Wiki', url: 'https://wiki.varnalab.org', icon: 'wikipedia'},
-        {id: 'website', title: 'WebSite', url: 'https://varnalab.org', icon: 'www'},
       ],
       [
         {id: 'slack-invitation', title: 'Покана за Slack', url: 'https://slack.varnalab.org', icon: 'slack'},
         {id: 'github-invitation', title: 'Покана за GitHub', url: 'https://github.varnalab.org', icon: 'github'},
         {id: 'mobile-cordova', title: 'Cordova Приложение', url: 'https://play.google.com/store/apps/details?id=com.varnalab.app', icon: 'android'},
         {id: 'mobile-native', title: 'Native Приложение (Lite)', url: 'https://play.google.com/store/apps/details?id=com.varnalab.app.android', icon: 'android'},
-      ],
-      [
-        {id: 'group-email', title: 'varna-lab@googlegroups.com', url: 'mailto:varna-lab@googlegroups.com', icon: 'email'},
-        {id: 'hq-email', title: 'hq@varnalab.org', url: 'mailto:hq@varnalab.org', icon: 'email'},
       ],
     ],
     fab: {},

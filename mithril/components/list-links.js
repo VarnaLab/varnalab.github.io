@@ -8,7 +8,13 @@ v.component['list-links'] = {
           href: link.url,
           },
           m('span.mdc-list-item__start-detail', {class: 'icon-' + link.icon}),
-          link.title,
+          m('span.mdc-list-item__text',
+            link.title,
+            (link.subtitle || null) &&
+            m('span.mdc-list-item__text__secondary',
+              link.subtitle
+            )
+          ),
           m('span.mdc-list-item__end-detail material-icons',
             m('i.material-icons', 'open_in_new')
           )
