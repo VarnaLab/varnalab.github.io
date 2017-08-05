@@ -35,11 +35,13 @@ v.component.toolbar = {
           m('span.mdc-toolbar__title', vnode.attrs.title)
         ),
         m('section.mdc-toolbar__section mdc-toolbar__section--align-end', {
-          role: 'toolbar'
+          role: 'toolbar',
+          class: 'v-' + vnode.attrs.route,
           },
           vnode.attrs.toolbar.map((item) =>
             m('a.material-icons mdc-toolbar__icon', {
-              'aria-label': '..', alt: '..',
+              'aria-label': '..',
+              alt: '..',
               href: item.path,
               // onclick: item.onclick,
               oncreate: m.route.link,

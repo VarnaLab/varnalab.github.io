@@ -33,6 +33,10 @@
 
 .shadow .v-fab { background: #fff; color: #000; }
 
+/*button*/
+
+.shadow .v-button { background: #fff; color: #000; }
+
 /*dialog*/
 
 .shadow .v-dialog { background: #fff; color: #000; }

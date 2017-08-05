@@ -134,7 +134,9 @@ window.addEventListener('DOMContentLoaded', () => {
       onmatch: () => window.location = v.origin + '/auth/login'
     },
 
-    '/lab': v.route.lab()
+    '/lab': v.route.lab(),
+
+    '/lab/:view': v.route.lab()
 
   })
 })

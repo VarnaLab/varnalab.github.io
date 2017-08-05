@@ -33,6 +33,10 @@
 
 .light .v-fab { background: #000; color: #fff; }
 
+/*button*/
+
+.light .v-button { background: #000; color: #fff; }
+
 /*dialog*/
 
 .light .v-dialog { background: #000; color: #fff; }

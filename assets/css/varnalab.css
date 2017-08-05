@@ -72,10 +72,14 @@ h1 {
 }
 
 /*whois filter*/
-.v-toolbar .mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
-.v-toolbar .mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
-.v-toolbar .mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
-.v-toolbar .mdc-toolbar__icon.active:nth-of-type(4) { color: #EF2D56; }
+.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
+.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
+.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
+.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(4) { color: #EF2D56; }
+
+/*lab filter*/
+.v-toolbar .v-lab .mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
+.v-toolbar .v-lab .mdc-toolbar__icon.active:nth-of-type(2) { color: #FFD60A; }
 
 
 /*drawer*/
@@ -103,13 +107,6 @@ h1 {
 
 
 /*list*/
-
-/*whois known*/
-.v-whois .mdc-list-item__end-detail {
-  width: auto;
-  height: auto;
-  margin-right: 0;
-}
 
 /*whois unknown*/
 .v-unknown .mdc-list-item__start-detail {
@@ -146,4 +143,9 @@ h1 {
 }
 .v-dialog li strong {
   padding-right: 10px;
+}
+
+/*lab*/
+.v-lab {
+  text-align: center;
 }
