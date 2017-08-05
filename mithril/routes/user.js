@@ -8,7 +8,7 @@ v.route.user = (whois, known) => {
       title: '',
       avatar: '',
       known: {},
-      social: [],
+      links: [],
     })
 
     window.scrollTo(0, 0)

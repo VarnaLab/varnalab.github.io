@@ -1,8 +1,8 @@
 
 v.component['list-links'] = {
   view: (vnode) =>
-    vnode.attrs.links.map((groups, index) => [
-      m('ul.mdc-list mdc-list--avatar-list v-list v-links', groups.map((link) =>
+    vnode.attrs.links.map((group, index) => [
+      m('ul.mdc-list mdc-list--avatar-list v-list v-links', group.map((link) =>
         m('a.mdc-list-item', {
           key: link.id,
           href: link.url,
@@ -14,7 +14,7 @@ v.component['list-links'] = {
           )
         )
       )),
-      (index < groups.length - 1) &&
+      (index < vnode.attrs.links.length - 1) &&
       m('hr.mdc-list-divider')
     ])
 }
