@@ -69,6 +69,7 @@ var v = {
         {id: 'github', title: 'GitHub', url: 'https://github.com/varnalab', icon: 'github'},
         {id: 'slack', title: 'Slack', url: 'https://varnalab.slack.com', icon: 'slack'},
         {id: 'wiki', title: 'Wiki', url: 'https://wiki.varnalab.org', icon: 'wikipedia'},
+        {id: 'website', title: 'WebSite', url: 'https://varnalab.org', icon: 'www'},
       ],
       [
         {id: 'slack-invitation', title: 'Покана за Slack', url: 'https://slack.varnalab.org', icon: 'slack'},
