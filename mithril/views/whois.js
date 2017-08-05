@@ -7,11 +7,12 @@ v.view.whois = {
   },
   view: (vnode) =>
     m('main.mdc-toolbar-fixed-adjust',
-      // list
+
       (/(whois|online|backers)$/.test(m.route.get()) || null) &&
-      m(v.component.users, vnode.attrs),
-      // list
+      m(v.component['list-users'], vnode.attrs),
+
       (/unknown$/.test(m.route.get()) || null) &&
-      m(v.component.devices, vnode.attrs)
+      m(v.component['list-devices'], vnode.attrs)
+
     )
 }

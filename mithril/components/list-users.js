@@ -1,5 +1,5 @@
 
-v.component.users = {
+v.component['list-users'] = {
   oninit: (vnode) => {
     vnode.state.onclick = (known) => () => {
       vnode.attrs.snackbar.show({

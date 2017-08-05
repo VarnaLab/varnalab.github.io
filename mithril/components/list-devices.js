@@ -1,5 +1,5 @@
 
-v.component.devices = {
+v.component['list-devices'] = {
   view: (vnode) =>
     m('ul.mdc-list mdc-list--avatar-list v-list v-unknown',
       vnode.attrs.devices.map((device) =>
