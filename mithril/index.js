@@ -73,7 +73,8 @@ var v = {
       [
         {id: 'slack-invitation', title: 'Покана за Slack', url: 'https://slack.varnalab.org', icon: 'slack'},
         {id: 'github-invitation', title: 'Покана за GitHub', url: 'https://github.varnalab.org', icon: 'github'},
-        {id: 'mobile-app', title: 'Мобилно Приложение', url: 'https://varnalab.github.io', icon: 'mobile'},
+        {id: 'mobile-cordova', title: 'Cordova Приложение', url: 'https://play.google.com/store/apps/details?id=com.varnalab.app', icon: 'android'},
+        {id: 'mobile-native', title: 'Native Приложение (Lite)', url: 'https://play.google.com/store/apps/details?id=com.varnalab.app.android', icon: 'android'},
       ],
       [
         {id: 'group-email', title: 'varna-lab@googlegroups.com', url: 'mailto:varna-lab@googlegroups.com', icon: 'email'},
