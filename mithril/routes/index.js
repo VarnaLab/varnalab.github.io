@@ -9,6 +9,7 @@ v.route.index = (whois) => {
       all: [],
       known: [],
       devices: [],
+      events: [],
     })
 
     window.scrollTo(0, 0)

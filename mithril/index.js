@@ -1,22 +1,24 @@
 
-if (location.search) {
-  var qs = location.search.replace('?', '').split('&')
-    .reduce((qs, pair) => (
-      ([key, value] = pair.split('=')) => (qs[key] = value, qs)
-    )(), {})
+;(() => {
+  if (location.search) {
+    var qs = location.search.replace('?', '').split('&')
+      .reduce((qs, pair) => (
+        ([key, value] = pair.split('=')) => (qs[key] = value, qs)
+      )(), {})
 
-  if (qs.login) {
-    localStorage.setItem('v-login', qs.login)
-  }
-  if (qs.admin) {
-    localStorage.setItem('v-admin', qs.admin)
-  }
-  if (qs.jwt) {
-    localStorage.setItem('v-jwt', qs.jwt)
-  }
+    if (qs.login) {
+      localStorage.setItem('v-login', qs.login)
+    }
+    if (qs.admin) {
+      localStorage.setItem('v-admin', qs.admin)
+    }
+    if (qs.jwt) {
+      localStorage.setItem('v-jwt', qs.jwt)
+    }
 
-  window.location = '/'
-}
+    window.location = '/'
+  }
+})()
 
 
 var v = {
@@ -53,6 +55,7 @@ var v = {
         [
           {path: '/', icon: 'refresh', text: '[ Начало ]', route: 'index'},
           {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'},
+          {path: '/events', icon: 'school', text: '[ Събития ]', route: 'events'},
           {path: '/lab', icon: 'lightbulb_outline', text: '[ За Лаба ]', route: 'lab'},
         ],
         [
@@ -135,13 +138,21 @@ window.addEventListener('DOMContentLoaded', () => {
       v.module.user(v)
     ),
 
-    '/login': {
-      onmatch: () => window.location = v.origin + '/auth/login'
-    },
+    '/events': v.route.events(
+      v.module.event(v)
+    ),
+
+    '/event/:id': v.route.event(
+      v.module.event(v)
+    ),
 
     '/lab': v.route.lab(),
 
-    '/lab/:view': v.route.lab()
+    '/lab/:view': v.route.lab(),
+
+    '/login': {
+      onmatch: () => window.location = v.origin + '/auth/login'
+    },
 
   })
 })

@@ -48,3 +48,20 @@
 .hacker .v-textfield input,
 .hacker .v-textfield label { color: #64dd17; }
 .hacker .v-textfield:after { background: #64dd17 !important; }
+
+/*card*/
+
+.hacker .v-card {
+  background: #000;
+  box-shadow:
+    0 3px 1px -2px rgba(100,221,23,.2),
+    0 2px 2px 0 rgba(100,221,23,.14),
+    0 1px 5px 0 rgba(100,221,23,.12);
+}
+.hacker .v-card .mdc-card__title,
+.hacker .v-card .mdc-card__supporting-text { color: #64dd17; }
+.hacker .v-card .mdc-card__subtitle { background: #64dd17; color: #000; }
+
+/*refresh button*/
+
+.hacker .v-refresh i { color: #64dd17; }

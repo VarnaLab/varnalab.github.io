@@ -8,6 +8,7 @@
       "assets/fonts/font-awesome/css/fontello.css",
 
       "node_modules/@material/button/dist/mdc.button.min.css",
+      "node_modules/@material/card/dist/mdc.card.min.css",
       "node_modules/@material/dialog/dist/mdc.dialog.min.css",
       "node_modules/@material/drawer/dist/mdc.drawer.min.css",
       "node_modules/@material/fab/dist/mdc.fab.min.css",
@@ -38,6 +39,7 @@
 
       "mithril/index.js",
 
+      "mithril/components/card-events.js",
       "mithril/components/dialog.js",
       "mithril/components/drawer.js",
       "mithril/components/fab.js",
@@ -63,6 +65,13 @@
       "mithril/modules/edit.js",
       "mithril/routes/edit.js",
       "mithril/views/edit.js",
+
+      "mithril/modules/event.js",
+      "mithril/routes/events.js",
+      "mithril/views/events.js",
+
+      "mithril/routes/event.js",
+      "mithril/views/event.js",
 
       "mithril/routes/lab.js",
       "mithril/views/lab.js"
