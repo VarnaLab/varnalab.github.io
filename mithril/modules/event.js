@@ -2,6 +2,7 @@
 v.module.event = (config) => {
   var url = {
     events: config.origin + '/events',
+    upcoming: config.origin + '/events/upcoming',
   }
 
   var range = (offset = 0, limit = 10) =>
@@ -18,5 +19,11 @@ v.module.event = (config) => {
       data: {id}
     })
 
-  return {range, single}
+  var upcoming = () =>
+    m.request({
+      method: 'GET',
+      url: url.upcoming
+    })
+
+  return {range, single, upcoming}
 }

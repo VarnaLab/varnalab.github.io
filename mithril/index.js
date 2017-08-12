@@ -117,7 +117,8 @@ window.addEventListener('DOMContentLoaded', () => {
   m.route(document.querySelector('body'), '/', {
 
     '/': v.route.index(
-      v.module.whois(v)
+      v.module.whois(v),
+      v.module.event(v),
     ),
 
     '/whois': v.route.whois(

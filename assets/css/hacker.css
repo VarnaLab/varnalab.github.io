@@ -65,3 +65,9 @@
 /*refresh button*/
 
 .hacker .v-refresh i { color: #64dd17; }
+
+/*event slider*/
+
+.hacker .v-slider .v-card .mdc-card__title {
+  color: #64dd17;
+}

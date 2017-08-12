@@ -1,5 +1,5 @@
 
-v.route.index = (whois) => {
+v.route.index = (whois, event) => {
   var state
 
   var onmatch = (args, url) => {
@@ -22,6 +22,15 @@ v.route.index = (whois) => {
       state.devices = whois.filter.unknown(whois.sort(data.online.unknown))
 
       whois.loaded = true
+      m.redraw()
+    })
+
+    event.upcoming().then((data) => {
+      state.events = data
+        // .sort((a, b) =>
+        //   new Date(a.start_time).getTime() -
+        //   new Date(b.start_time).getTime()
+        // )
       m.redraw()
     })
   }
