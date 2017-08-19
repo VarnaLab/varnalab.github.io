@@ -23,6 +23,7 @@ var env = process.env.NODE_ENV || argv.env || 'development'
 var static = require('../config/static')[env]
 var meta = require('../config/meta')
 var base = require('../mithril/base')
+var build = require('./build')(argv.build, static)
 
 var fs = require('fs')
 var path = require('path')
@@ -31,123 +32,29 @@ var path = require('path')
 if (argv.render) {
   base({meta, static})
     .then((html) => {
-      fs.writeFileSync(path.resolve(process.cwd(), argv.render, 'index.html'), html, 'utf8')
+      fs.writeFileSync(
+        path.resolve(process.cwd(), argv.render, 'index.html'),
+        html,
+        'utf8'
+      )
     })
     .catch((err) => console.error(err))
 }
 
 else if (argv.build) {
 
-  // varnalab.min.css
-
-  var csso = require('csso')
-
-  fs.writeFileSync(
-    path.resolve(process.cwd(), argv.build, 'varnalab.min.css'),
-    fs.readdirSync(path.resolve(__dirname, '../assets/css/'))
-      .map((file) =>
-        csso.minify(
-          fs.readFileSync(path.resolve(__dirname, '../assets/css/' + file), 'utf8')
-        ).css
-      ).join('\n'),
-    'utf8'
-  )
-
-  // varnalab.js
-
-  var babel = require('babel-core')
-
-  var options = {
-    presets: ['es2015'],
-    comments: false,
-    compact: true,
-    minified: true
+  var write = (file, data) => {
+    fs.writeFileSync(
+      path.resolve(process.cwd(), argv.build, file),
+      data,
+      'utf8'
+    )
   }
 
-  fs.writeFileSync(
-    path.resolve(process.cwd(), argv.build, 'varnalab.js'),
+  write('varnalab.min.css', build.varnalab.css())
+  write('varnalab.js', build.varnalab.js())
+  write('varnalab.min.js', build.varnalab.minjs())
 
-    babel.transformFileSync(
-      path.resolve(__dirname, '../mithril/index.js'), options
-    ).code + '\n' +
-
-    fs.readdirSync(path.resolve(__dirname, '../mithril/components/'))
-      .map((file) =>
-        babel.transformFileSync(
-          path.resolve(__dirname, '../mithril/components/', file), options
-        ).code
-      ).join('\n') + '\n' +
-
-    fs.readdirSync(path.resolve(__dirname, '../mithril/modules/'))
-      .map((file) =>
-        babel.transformFileSync(
-          path.resolve(__dirname, '../mithril/modules/', file), options
-        ).code
-      ).join('\n') + '\n' +
-
-    fs.readdirSync(path.resolve(__dirname, '../mithril/routes/'))
-      .map((file) =>
-        babel.transformFileSync(
-          path.resolve(__dirname, '../mithril/routes/', file), options
-        ).code
-      ).join('\n') + '\n' +
-
-    fs.readdirSync(path.resolve(__dirname, '../mithril/views/'))
-      .map((file) =>
-        babel.transformFileSync(
-          path.resolve(__dirname, '../mithril/views/', file), options
-        ).code
-      ).join('\n'),
-
-    'utf8'
-  )
-
-  // varnalab.min.js
-
-  var minify = require('uglify-js').minify
-
-  var options = {
-    compress: {},
-    mangle: true
-  }
-
-  fs.writeFileSync(
-    path.resolve(process.cwd(), argv.build, 'varnalab.min.js'),
-    minify(
-      fs.readFileSync(
-        path.resolve(process.cwd(), argv.build, 'varnalab.js'),
-        'utf8'
-      ),
-      options
-    ).code,
-    'utf8'
-  )
-
-  // mdc.varnalab.css
-  fs.writeFileSync(
-    path.resolve(process.cwd(), argv.build, 'mdc.varnalab.min.css'),
-
-    static.css
-      .filter((file) => /@material/.test(file))
-      .reduce((css, file) => (
-        css += fs.readFileSync(path.resolve(__dirname, '../', file), 'utf8'),
-        css
-      ), ''),
-
-    'utf8'
-  )
-
-  // mdc.varnalab.js
-  fs.writeFileSync(
-    path.resolve(process.cwd(), argv.build, 'mdc.varnalab.min.js'),
-
-    static.js
-      .filter((file) => /@material/.test(file))
-      .reduce((js, file) => (
-        js += fs.readFileSync(path.resolve(__dirname, '../', file), 'utf8'),
-        js
-      ), ''),
-
-    'utf8'
-  )
+  write('mdc.varnalab.min.css', build.mdc.css())
+  write('mdc.varnalab.min.js', build.mdc.js())
 }
