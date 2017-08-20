@@ -56,5 +56,9 @@ else if (argv.build) {
   write('varnalab.min.js', build.varnalab.minjs())
 
   write('mdc.varnalab.min.css', build.mdc.css())
-  write('mdc.varnalab.min.js', build.mdc.js())
+
+  build.mdc.js()
+    .then((code) => {
+      write('mdc.varnalab.min.js', code)
+    })
 }
