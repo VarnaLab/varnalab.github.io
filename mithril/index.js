@@ -34,7 +34,7 @@ var v = {
     login: localStorage.getItem('v-login'),
     admin: localStorage.getItem('v-admin'),
     jwt: localStorage.getItem('v-jwt'),
-    theme: localStorage.getItem('v-theme'),
+    theme: localStorage.getItem('v-theme') || 'light',
 
     route: '',
     title: '',
@@ -104,9 +104,13 @@ if (location.protocol === 'file:') {
   v.prefix = '/android_asset/www'
 }
 
-if (location.host === 'ssd' || location.host ===  '192.168.1.101:8001') {
+if (/ssd|192\.168\.1\.100:8001/.test(location.host)) {
   v.state.avatar = v.state.avatar.slice(1)
-  v.origin = 'http://192.168.1.101:3000/varnalab/api'
+  v.origin = 'http://192.168.1.100:3000/varnalab/api'
+}
+if (/localhost:3000/.test(location.host)) {
+  v.state.avatar = v.state.avatar.slice(1)
+  v.origin = 'http://localhost:3000/api'
 }
 
 v.state.avatar = v.prefix + v.state.avatar
