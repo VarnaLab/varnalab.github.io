@@ -22,7 +22,7 @@
 
 
 var v = {
-  origin: 'https://simo.varnalab.org/api',
+  origin: 'https://box.outofindex.com/varnalab/api',
   prefix: '',
 
   module: {},
