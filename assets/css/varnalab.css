@@ -189,6 +189,7 @@ h1 {
 }
 .v-slider a {
   position: absolute;
+  width: 100%;
   height: 12.313rem;
 }
 .v-slider .v-card .mdc-card__media {
