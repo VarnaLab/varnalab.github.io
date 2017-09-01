@@ -1,10 +1,5 @@
 
 v.module.whois = (config) => {
-  var url = {
-    known: config.origin + '/whois/known',
-    backers: config.origin + '/finance/stats/backers',
-    online: config.origin + '/whois/online',
-  }
 
   var state = {
     known: [],
@@ -20,15 +15,15 @@ v.module.whois = (config) => {
     Promise.all([
       m.request({
         method: 'GET',
-        url: url.known
+        url: config.api.known
       }),
       m.request({
         method: 'GET',
-        url: url.backers
+        url: config.api.backers
       }),
       m.request({
         method: 'GET',
-        url: url.online
+        url: config.api.online
       }),
     ])
     .then((data) => ({

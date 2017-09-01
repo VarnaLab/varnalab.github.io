@@ -1,28 +1,24 @@
 
 v.module.event = (config) => {
-  var url = {
-    events: config.origin + '/events',
-    upcoming: config.origin + '/events/upcoming',
-  }
 
   var range = (offset = 0, limit = 10) =>
     m.request({
       method: 'GET',
-      url: url.events,
+      url: config.api.events,
       data: {offset, limit}
     })
 
   var single = (id) =>
     m.request({
       method: 'GET',
-      url: url.events,
+      url: config.api.events,
       data: {id}
     })
 
   var upcoming = () =>
     m.request({
       method: 'GET',
-      url: url.upcoming
+      url: config.api.upcoming
     })
 
   return {range, single, upcoming}
