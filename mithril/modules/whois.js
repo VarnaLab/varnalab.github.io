@@ -21,15 +21,20 @@ v.module.whois = (config) => {
         method: 'GET',
         url: config.api.backers
       }),
-      m.request({
-        method: 'GET',
-        url: config.api.online
-      }),
+      Promise.race([
+        m.request({
+          method: 'GET',
+          url: config.api.online
+        }),
+        new Promise((resolve, reject) => {
+          setTimeout(() => resolve({known: [], unknown: []}), 2500)
+        })
+      ])
     ])
     .then((data) => ({
-      known: data[0],
-      backers: data[1],
-      online: data[2],
+      known: data[0] || [],
+      backers: data[1] || [],
+      online: data[2] || {known: [], unknown: []},
     }))
 
   var known = ({known, backers, online}) =>
