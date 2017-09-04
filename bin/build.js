@@ -13,20 +13,15 @@ module.exports = (tpath, static) => {
 
     // varnalab.min.css
     css: () =>
-      ['light', 'shadow', 'hacker']
-        .reduce((styles, theme) => styles +=
+      ['light', 'shadow', 'hacker', 'varnalab']
+        .reduce((styles, file) => styles +=
           csso.minify(
             fs.readFileSync(
-              path.resolve(__dirname, `../assets/css/${theme}.css`), 'utf8')
+              path.resolve(__dirname, `../assets/css/${file}.css`), 'utf8')
           )
           .css + '\n',
           ''
         )
-      +
-      csso.minify(
-        fs.readFileSync(
-          path.resolve(__dirname, '../assets/css/varnalab.css'), 'utf8')
-      ).css
     ,
 
     // varnalab.js
