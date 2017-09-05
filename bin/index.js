@@ -5,7 +5,7 @@ var argv = require('minimist')(process.argv.slice(2))
 if (argv.help) {
   console.log('--render /path/to/render/location/')
   console.log('--build /path/to/build/location/')
-  console.log('--env')
+  console.log('--env environment')
   process.exit()
 }
 
@@ -19,7 +19,13 @@ if (argv.build && typeof argv.build !== 'string') {
   process.exit()
 }
 
-var env = process.env.NODE_ENV || argv.env || 'development'
+var env = process.env.NODE_ENV || argv.env
+
+if (argv.render && !env) {
+  console.log('Specify --env environment')
+  process.exit()
+}
+
 var static = require('../config/static')[env]
 var meta = require('../config/meta')
 var base = require('../mithril/base')
