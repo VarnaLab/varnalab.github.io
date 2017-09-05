@@ -35,6 +35,8 @@ var v = {
     // events
     events: '/events',
     upcoming: '/events/upcoming',
+    // auth
+    login: '/auth/login',
   },
 
   state: {
@@ -101,21 +103,15 @@ var v = {
   }
 }
 
+
 // api
 ;(() => {
-  var origin =
-    (location.host === '192.168.1.100:8001' || location.host === 'ssd')
-    ? 'http://192.168.1.100:3000'
+  var origin = /outofindex\.com/.test(location.origin)
+    ? location.origin
     : 'https://box.outofindex.com'
-
-  var path =
-    (location.host === '192.168.1.100:8001' || location.host === 'ssd')
-    ? '/varnalab/api'
-    : '/varnalab/api'
-
   Object.keys(v.api)
     .forEach((key) => {
-      v.api[key] = origin + path + v.api[key]
+      v.api[key] = origin + '/varnalab/api' + v.api[key]
     })
   // temp
   // v.api.online = 'https://json.varnalab.org/services/api.json'
@@ -124,22 +120,18 @@ var v = {
 // assets
 ;(() => {
   var path =
-    (location.host === 'box.outofindex.com')
-    ? '/varnalab/app'
-    : (location.protocol === 'file:')
-    ? '/android_asset/www'
+    (location.protocol === 'file:') ? '/android_asset/www' :
+    /outofindex\.com/.test(location.origin) ? location.origin + '/varnalab/app'
     : ''
-
-  v.state.avatar = path +
-    (location.host === '192.168.1.100:8001' || location.host === 'ssd')
-    ? v.state.avatar.slice(1)
-    : v.state.avatar
+  v.state.avatar = path + v.state.avatar
 })()
 
-//
-if (location.host === 'box.outofindex.com') {
-  m.route.prefix(v.prefix)
-}
+// prefix
+;(() => {
+  if (/outofindex\.com/.test(location.host)) {
+    m.route.prefix('/varnalab/app')
+  }
+})()
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -182,7 +174,7 @@ window.addEventListener('DOMContentLoaded', () => {
     '/lab/:view': v.route.lab(),
 
     '/login': {
-      onmatch: () => window.location = v.origin + '/auth/login'
+      onmatch: () => window.location = v.api.login
     },
 
   })
