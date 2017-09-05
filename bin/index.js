@@ -21,7 +21,7 @@ if (argv.build && typeof argv.build !== 'string') {
 
 var env = process.env.NODE_ENV || argv.env
 
-if (argv.render && !env) {
+if (!env) {
   console.log('Specify --env environment')
   process.exit()
 }

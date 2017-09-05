@@ -69,7 +69,8 @@ module.exports = (tpath, static) => {
     css: () => static.css
       .filter((file) => /@material/.test(file))
       .reduce((styles, file) =>
-        styles += fs.readFileSync(path.resolve(__dirname, '../', file), 'utf8'),
+        styles += fs.readFileSync(path.resolve(__dirname, '../',
+          file.replace(/^.*(node_modules.*)/, '$1')), 'utf8'),
         ''
       )
     ,
