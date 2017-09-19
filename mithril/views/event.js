@@ -9,7 +9,7 @@ v.view.event = {
           style: 'background-image: url(' + vnode.attrs.event.photo + ')'
         }),
         m('section.mdc-card__supporting-text',
-          vnode.attrs.event.description
+          m.trust(vnode.attrs.event.description)
         )
       ),
       m(v.component['list-links'], vnode.attrs)

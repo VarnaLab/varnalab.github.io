@@ -17,6 +17,12 @@ v.route.event = (event) => {
     event.single(args.id).then((data) => {
       document.title = state.title = '[ ' + data.name.split(' ')[0] + ' ]'
       state.event = data
+      state.event.description = state.event.description
+        .replace(/\n/gi, '<br>')
+        .replace(
+          /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi,
+          (url) => `<a href="${url}">${url}</a>`
+        )
       state.links[0].push({
         id: data.id,
         url: 'https://www.facebook.com/events/' + data.id,
