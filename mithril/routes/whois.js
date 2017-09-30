@@ -47,7 +47,7 @@ v.route.whois = (whois) => {
       ],
     })
     whois.get().then((res) => {
-      whois.loaded = true
+      state.loaded = true
       state.error = res.error
       state.all = whois.known(res.data)
       state.missing = whois.missing(res.data)

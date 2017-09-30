@@ -17,7 +17,7 @@ v.route.index = (whois, event) => {
     document.title = state.title
 
     whois.get().then((res) => {
-      whois.loaded = true
+      state.loaded = true
       state.error = res.error
 
       state.all = whois.known(res.data)

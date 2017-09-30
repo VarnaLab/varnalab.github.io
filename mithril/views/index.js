@@ -9,11 +9,11 @@ v.view.index = {
 
       m('h1.mdc-typography--headline', '[ Хора в Лаба ]'),
 
-      (vnode.attrs.error.online || null) &&
-      m('p.v-error', m('em', vnode.attrs.error.online)),
-
-      ((!vnode.attrs.known.length && !vnode.attrs.devices.length) || null) &&
-      m('p.v-error', m('em', 'Няма никой')),
+      vnode.attrs.error.online
+      ? m('p.v-error', m('em', vnode.attrs.error.online))
+      : vnode.attrs.loaded && !vnode.attrs.known.length && !vnode.attrs.devices.length
+      ? m('p.v-error', m('em', 'Няма никой'))
+      : null,
 
       m(v.component['list-users'], vnode.attrs),
       m(v.component['list-devices'], vnode.attrs)
