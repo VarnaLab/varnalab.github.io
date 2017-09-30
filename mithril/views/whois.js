@@ -11,6 +11,9 @@ v.view.whois = {
       ((/(online|unknown)$/.test(m.route.get()) && vnode.attrs.error.online) || null) &&
       m('p.v-error', m('em', vnode.attrs.error.online)),
 
+      ((/(online|unknown)$/.test(m.route.get()) && !vnode.attrs.known.length && !vnode.attrs.devices.length) || null) &&
+      m('p.v-error', m('em', 'Няма никой')),
+
       (/(whois|online|backers)$/.test(m.route.get()) || null) &&
       m(v.component['list-users'], vnode.attrs),
 
