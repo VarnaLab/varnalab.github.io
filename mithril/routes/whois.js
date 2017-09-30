@@ -37,6 +37,7 @@ v.route.whois = (whois) => {
       missing: [],
       known: [],
       devices: [],
+      error: {},
 
       toolbar: [
         {path: '/whois', icon: 'list'},
@@ -45,11 +46,12 @@ v.route.whois = (whois) => {
         {path: '/whois/unknown', icon: 'fingerprint'},
       ],
     })
-    whois.get().then((data) => {
+    whois.get().then((res) => {
       whois.loaded = true
-      state.all = whois.known(data)
-      state.missing = whois.missing(data)
-      state.unknown = data.online.unknown
+      state.error = res.error
+      state.all = whois.known(res.data)
+      state.missing = whois.missing(res.data)
+      state.unknown = res.data.online.unknown
       filter[args.filter || 'all']()
       m.redraw()
     })

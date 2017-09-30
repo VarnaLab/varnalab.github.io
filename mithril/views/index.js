@@ -8,6 +8,8 @@ v.view.index = {
       m(v.component['card-slider'], vnode.attrs),
 
       m('h1.mdc-typography--headline', '[ Хора в Лаба ]'),
+      (vnode.attrs.error.online || null) &&
+      m('p.v-error', m('em', vnode.attrs.error.online)),
       m(v.component['list-users'], vnode.attrs),
       m(v.component['list-devices'], vnode.attrs)
     )

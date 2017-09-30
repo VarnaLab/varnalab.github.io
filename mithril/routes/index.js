@@ -10,18 +10,20 @@ v.route.index = (whois, event) => {
       known: [],
       devices: [],
       events: [],
+      error: {},
     })
 
     window.scrollTo(0, 0)
     document.title = state.title
 
-    whois.get().then((data) => {
-      state.all = whois.known(data)
-
-      state.known = whois.filter.online(state.all)
-      state.devices = whois.filter.unknown(whois.sort(data.online.unknown))
-
+    whois.get().then((res) => {
       whois.loaded = true
+      state.error = res.error
+
+      state.all = whois.known(res.data)
+      state.known = whois.filter.online(state.all)
+      state.devices = whois.filter.unknown(whois.sort(res.data.online.unknown))
+
       m.redraw()
     })
 

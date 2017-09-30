@@ -1,41 +1,30 @@
 
 v.module.whois = (config) => {
 
-  var state = {
-    known: [],
-    backers: [],
-    online: {
-      known: [],
-      unknown: []
-    },
-    all: []
-  }
-
   var get = () =>
-    Promise.all([
-      m.request({
-        method: 'GET',
-        url: config.api.known
-      }),
-      m.request({
-        method: 'GET',
-        url: config.api.backers
-      }),
+    Promise.all(['known', 'backers', 'online'].map((endpoint) =>
       Promise.race([
         m.request({
           method: 'GET',
-          url: config.api.online
+          url: config.api[endpoint]
         }),
         new Promise((resolve, reject) => {
-          setTimeout(() => resolve({known: [], unknown: []}), 2500)
+          setTimeout(() => resolve({error: 'Timeout'}), 3000)
         })
       ])
-    ])
-    .then((data) => ({
-      known: data[0] || [],
-      backers: data[1] || [],
-      online: data[2] || {known: [], unknown: []},
-    }))
+    ))
+    .then(([known, backers, online]) => ({
+        error: {
+          known: !known ? 'Missing' : known.error,
+          backers: !backers ? 'Missing' : backers.error,
+          online: !online ? 'Missing' : online.error,
+        },
+        data: {
+          known: known.error || !known ? [] : known,
+          backers: backers.error || !backers ? [] : backers,
+          online: online.error || !online ? {known: [], unknown: []} : online,
+        }
+      }))
 
   var known = ({known, backers, online}) =>
     known
