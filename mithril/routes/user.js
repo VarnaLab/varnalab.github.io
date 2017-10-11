@@ -13,7 +13,7 @@ v.route.user = (whois, known) => {
 
     window.scrollTo(0, 0)
 
-    whois.get().then((data) => {
+    whois.get().then(({data}) => {
 
       state.known = whois.known(data)
         .find((known) => known.id === args.id)
