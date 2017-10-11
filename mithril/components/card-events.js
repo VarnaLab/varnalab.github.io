@@ -1,5 +1,13 @@
 
 v.component['card-events'] = {
+  oninit: (vnode) => {
+    vnode.state.now = (event) =>
+      new Date(event.start_time).getTime()
+        <= new Date().getTime()
+      &&
+      new Date(event.end_time || event.start_time).getTime()
+        >= new Date().getTime()
+  },
   view: (vnode) =>
     vnode.attrs.events.map((event) =>
       m('a.mdc-card v-card v-card-events', {
@@ -7,8 +15,11 @@ v.component['card-events'] = {
         oncreate: m.route.link
         },
         m('section.mdc-card__media', {
-          style: 'background-image: url(' + event.photo + ')'
-        }),
+            style: 'background-image: url(' + event.photo + ')'
+          },
+          (vnode.state.now(event) || null) &&
+          m('.v-now', 'Събитието тече в момента!')
+        ),
         m('section.mdc-card__primary',
           m('h1.mdc-card__title mdc-card__title--large',
             event.name

@@ -58,6 +58,7 @@
     0 1px 5px 0 rgba(255,255,255,.12);
 }
 .shadow .v-card .mdc-card__supporting-text a { color: #F74552; }
+.shadow .v-card .v-now { color: #64dd17; }
 
 .shadow .v-card-slider .mdc-card__title,
 .shadow .v-card-slider .mdc-card__subtitle { color: #fff; }

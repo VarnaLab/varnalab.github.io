@@ -60,6 +60,7 @@
     0 1px 5px 0 rgba(0,0,0,.12);
 }
 .light .v-card .mdc-card__supporting-text a { color: #197BBD; }
+.light .v-card .v-now { color: #64dd17; }
 
 .light .v-card-slider .mdc-card__title,
 .light .v-card-slider .mdc-card__subtitle { color: #fff; }

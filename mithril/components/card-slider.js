@@ -1,5 +1,13 @@
 
 v.component['card-slider'] = {
+  oninit: (vnode) => {
+    vnode.state.now = (event) =>
+      new Date(event.start_time).getTime()
+        <= new Date().getTime()
+      &&
+      new Date(event.end_time || event.start_time).getTime()
+        >= new Date().getTime()
+  },
   view: (vnode) =>
     m('.v-slider',
       vnode.attrs.events.map((event) =>
@@ -8,8 +16,10 @@ v.component['card-slider'] = {
           oncreate: m.route.link
           },
           m('section.mdc-card__media', {
-            style: 'background-image: url(' + event.photo + ')'
+              style: 'background-image: url(' + event.photo + ')'
             },
+            (vnode.state.now(event) || null) &&
+            m('.v-now', 'Събитието тече в момента!'),
             m('h1.mdc-card__title mdc-card__title--large',
               event.name
             ),

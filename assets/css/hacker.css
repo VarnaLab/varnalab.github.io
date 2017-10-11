@@ -59,6 +59,7 @@
     0 1px 5px 0 rgba(100,221,23,.12);
 }
 .hacker .v-card .mdc-card__supporting-text a { color: #F74552; }
+.hacker .v-card .v-now { color: #fff; }
 
 .hacker .v-card-slider .mdc-card__title,
 .hacker .v-card-slider .mdc-card__subtitle { color: #64dd17; }
