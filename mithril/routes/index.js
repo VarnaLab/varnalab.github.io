@@ -29,10 +29,7 @@ v.route.index = (whois, event) => {
 
     event.upcoming().then((data) => {
       state.events = data
-        // .sort((a, b) =>
-        //   new Date(a.start_time).getTime() -
-        //   new Date(b.start_time).getTime()
-        // )
+        .sort((a, b) => new Date(b.start_time) - new Date(a.start_time))
       m.redraw()
     })
   }

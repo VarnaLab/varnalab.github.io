@@ -63,4 +63,5 @@
 
 /*refresh button*/
 
-.shadow .v-refresh i { color: #fff; }
+.shadow .v-refresh,
+.shadow .v-past { color: #fff; }

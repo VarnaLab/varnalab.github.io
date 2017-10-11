@@ -14,13 +14,22 @@ v.view.events = {
   },
   view: (vnode) =>
     m('main.mdc-toolbar-fixed-adjust v-events',
+      m('h1.mdc-typography--headline', vnode.attrs.title),
+
       m(v.component['card-events'], vnode.attrs),
-      m('button.mdc-button v-refresh', {
-        onclick: vnode.attrs.load
-        },
-        m('i.material-icons',
-          'refresh'
+
+      vnode.attrs.filter === 'upcoming'
+      ? m('a.mdc-button v-past', {
+          href: '/events',
+          oncreate: m.route.link
+          },
+          m('i.material-icons mdc-button__icon', 'school'),
+          'Изминали Събития'
         )
-      )
+      : m('button.mdc-button v-refresh', {
+          onclick: vnode.attrs.load
+          },
+          m('i.material-icons', 'refresh')
+        )
     )
 }

@@ -35,6 +35,7 @@ var v = {
     // events
     events: '/events',
     upcoming: '/events/upcoming',
+    past: '/events/past',
     // auth
     login: '/auth/login',
   },
@@ -64,7 +65,7 @@ var v = {
         [
           {path: '/', icon: 'refresh', text: '[ Начало ]', route: 'index'},
           {path: '/whois', icon: 'directions_run', text: '[ Хора ]', route: 'whois'},
-          {path: '/events', icon: 'school', text: '[ Събития ]', route: 'events'},
+          {path: '/events/upcoming', icon: 'school', text: '[ Събития ]', route: 'events'},
           {path: '/lab', icon: 'lightbulb_outline', text: '[ За Лаба ]', route: 'lab'},
         ],
         [
@@ -162,6 +163,10 @@ window.addEventListener('DOMContentLoaded', () => {
     ),
 
     '/events': v.route.events(
+      v.module.event(v)
+    ),
+
+    '/events/:filter': v.route.events(
       v.module.event(v)
     ),
 

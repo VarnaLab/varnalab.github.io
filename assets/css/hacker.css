@@ -64,7 +64,8 @@
 
 /*refresh button*/
 
-.hacker .v-refresh i { color: #64dd17; }
+.hacker .v-refresh,
+.hacker .v-past { color: #64dd17; }
 
 /*event slider*/
 

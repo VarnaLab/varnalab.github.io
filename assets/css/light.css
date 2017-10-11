@@ -65,4 +65,5 @@
 
 /*refresh button*/
 
-.light .v-refresh i { color: #000; }
+.light .v-refresh,
+.light .v-past { color: #000; }

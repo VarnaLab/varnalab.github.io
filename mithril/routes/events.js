@@ -7,27 +7,48 @@ v.route.events = (event) => {
     scroll: 0
   }
 
+  function active (index) {
+    state.toolbar.forEach((item) => item.active = false)
+    state.toolbar[index].active = true
+  }
+
   var onmatch = (args, url) => {
     state = Object.assign({}, v.state, {
       route: 'events',
-      title: '[ Събития ]',
       toolbar: [
+        {path: '/events/upcoming', icon: 'access_time'},
         {path: '/events', icon: 'school'},
       ],
       events: cache.events,
+      filter: args.filter,
       cache
     })
 
-    document.title = state.title
-
-    state.load = () => {
-      event.range(cache.offset).then((data) => {
-        cache.events = cache.events.concat(data)
-        state.events = cache.events
-        cache.offset += 10
-        m.redraw()
-      })
+    if (state.filter === 'upcoming') {
+      state.title = '[ Предстоящи Събития ]'
+      active(0)
+      state.load = () => {
+        event.upcoming().then((data) => {
+          cache.events = cache.events.concat(data)
+          state.events = cache.events
+          m.redraw()
+        })
+      }
     }
+    else {
+      state.title = '[ Изминали Събития ]'
+      active(1)
+      state.load = () => {
+        event.range({offset: cache.offset, past: true}).then((data) => {
+          cache.events = cache.events.concat(data)
+          state.events = cache.events
+          cache.offset += 10
+          m.redraw()
+        })
+      }
+    }
+
+    document.title = state.title
 
     if (!state.events.length) {
       window.scrollTo(0, 0)

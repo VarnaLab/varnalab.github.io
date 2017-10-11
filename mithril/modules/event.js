@@ -1,10 +1,10 @@
 
 v.module.event = (config) => {
 
-  var range = (offset = 0, limit = 10) =>
+  var range = ({offset = 0, limit = 10, past = false}) =>
     m.request({
       method: 'GET',
-      url: config.api.events,
+      url: config.api[past ? 'past' : 'events'],
       data: {offset, limit}
     })
 
