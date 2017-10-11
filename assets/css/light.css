@@ -64,6 +64,8 @@
 .light .v-card .mdc-card__supporting-text { color: #000; }
 .light .v-card .mdc-card__subtitle { background: #000; color: #fff; }
 
+.light .v-slider .v-card .mdc-card__subtitle { color: #fff; }
+
 /*refresh button*/
 
 .light .v-refresh,

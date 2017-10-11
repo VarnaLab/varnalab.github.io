@@ -62,6 +62,8 @@
 .shadow .v-card .mdc-card__supporting-text { color: #fff; }
 .shadow .v-card .mdc-card__subtitle { background: #fff; color: #000; }
 
+.shadow .v-slider .v-card .mdc-card__subtitle { color: #fff; }
+
 /*refresh button*/
 
 .shadow .v-refresh,

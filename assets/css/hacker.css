@@ -63,6 +63,8 @@
 .hacker .v-card .mdc-card__supporting-text { color: #64dd17; }
 .hacker .v-card .mdc-card__subtitle { background: #64dd17; color: #000; }
 
+.hacker .v-slider .v-card .mdc-card__subtitle { color: #64dd17; }
+
 /*refresh button*/
 
 .hacker .v-refresh,

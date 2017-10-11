@@ -12,6 +12,12 @@ v.component['card-slider'] = {
             },
             m('h1.mdc-card__title mdc-card__title--large',
               event.name
+            ),
+            m('h2.mdc-card__subtitle',
+              new Date(event.start_time).toLocaleString('bg-BG', {
+                weekday: 'long', day: 'numeric', month: 'long',
+                hour: 'numeric', minute: 'numeric'
+              }) + ' ч.'
             )
           )
         )
