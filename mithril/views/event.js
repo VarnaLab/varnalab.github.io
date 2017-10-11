@@ -1,17 +1,9 @@
 
 v.view.event = {
   view: (vnode) =>
-    m('main.mdc-toolbar-fixed-adjust v-events',
+    m('main.mdc-toolbar-fixed-adjust',
       m('h1.mdc-typography--headline', vnode.attrs.event.name),
-      m('.mdc-card v-card',
-        (vnode.attrs.event.photo || null) &&
-        m('section.mdc-card__media', {
-          style: 'background-image: url(' + vnode.attrs.event.photo + ')'
-        }),
-        m('section.mdc-card__supporting-text',
-          m.trust(vnode.attrs.event.description)
-        )
-      ),
+      m(v.component['card-event'], vnode.attrs),
       m(v.component['list-links'], vnode.attrs)
     )
 }

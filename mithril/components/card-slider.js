@@ -3,7 +3,7 @@ v.component['card-slider'] = {
   view: (vnode) =>
     m('.v-slider',
       vnode.attrs.events.map((event) =>
-        m('a.mdc-card mdc-card--theme-dark v-card', {
+        m('a.mdc-card mdc-card--theme-dark v-card v-card-slider', {
           href: '/event/' + event.id,
           oncreate: m.route.link
           },

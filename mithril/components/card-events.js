@@ -2,7 +2,7 @@
 v.component['card-events'] = {
   view: (vnode) =>
     vnode.attrs.events.map((event) =>
-      m('a.mdc-card v-card', {
+      m('a.mdc-card v-card v-card-events', {
         href: '/event/' + event.id,
         oncreate: m.route.link
         },
@@ -15,12 +15,8 @@ v.component['card-events'] = {
           ),
           m('h2.mdc-card__subtitle',
             new Date(event.start_time).toLocaleString('bg-BG', {
-              weekday: 'long',
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-              hour: 'numeric',
-              minute: 'numeric',
+              weekday: 'long', day: 'numeric', month: 'long',
+              year: 'numeric', hour: 'numeric', minute: 'numeric',
             }) + ' ч.'
           )
         )

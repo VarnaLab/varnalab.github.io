@@ -39,6 +39,7 @@
 
       "/varnalab/app/mithril/index.js",
 
+      "/varnalab/app/mithril/components/card-event.js",
       "/varnalab/app/mithril/components/card-events.js",
       "/varnalab/app/mithril/components/card-slider.js",
       "/varnalab/app/mithril/components/dialog.js",
