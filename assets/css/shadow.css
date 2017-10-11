@@ -57,6 +57,7 @@
     0 2px 2px 0 rgba(255,255,255,.14),
     0 1px 5px 0 rgba(255,255,255,.12);
 }
+.shadow .v-card a { color: #F74552; }
 .shadow .v-card .mdc-card__title,
 .shadow .v-card .mdc-card__supporting-text { color: #fff; }
 .shadow .v-card .mdc-card__subtitle { background: #fff; color: #000; }

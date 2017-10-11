@@ -59,6 +59,7 @@
     0 2px 2px 0 rgba(0,0,0,.14),
     0 1px 5px 0 rgba(0,0,0,.12);
 }
+.light .v-card a { color: #197BBD; }
 .light .v-card .mdc-card__title,
 .light .v-card .mdc-card__supporting-text { color: #000; }
 .light .v-card .mdc-card__subtitle { background: #000; color: #fff; }
