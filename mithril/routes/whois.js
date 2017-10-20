@@ -22,12 +22,8 @@ v.route.whois = (whois) => {
       document.title = state.title = '[ В Лаба ]'
       active(2)
       state.known = whois.filter.online(state.all)
-    },
-    unknown: () => {
-      document.title = state.title = '[ Гости ]'
-      active(3)
       state.devices = whois.filter.unknown(whois.sort(state.unknown))
-    }
+    },
   }
 
   var onmatch = (args, url) => {
@@ -43,7 +39,6 @@ v.route.whois = (whois) => {
         {path: '/whois', icon: 'directions_run'},
         {path: '/whois/backers', icon: 'attach_money'},
         {path: '/whois/online', icon: 'power'},
-        {path: '/whois/unknown', icon: 'fingerprint'},
       ],
     })
     whois.get().then((res) => {

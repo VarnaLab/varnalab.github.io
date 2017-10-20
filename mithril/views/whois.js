@@ -22,7 +22,7 @@ v.view.whois = {
       (/(whois|online|backers)$/.test(m.route.get()) || null) &&
       m(v.component['list-users'], vnode.attrs),
 
-      (/unknown$/.test(m.route.get()) || null) &&
+      (/online$/.test(m.route.get()) || null) &&
       m(v.component['list-devices'], vnode.attrs)
 
     )
