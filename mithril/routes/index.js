@@ -15,6 +15,7 @@ v.route.index = (whois, event) => {
 
     window.scrollTo(0, 0)
     document.title = state.title
+    state.toolbar.forEach((item) => item.active = false)
 
     whois.get().then((res) => {
       state.loaded = true

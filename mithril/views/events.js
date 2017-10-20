@@ -23,7 +23,7 @@ v.view.events = {
           href: '/events',
           oncreate: m.route.link
           },
-          m('i.material-icons mdc-button__icon', 'school'),
+          m('i.material-icons mdc-button__icon', 'local_movies'),
           'Изминали Събития'
         )
       : m('button.mdc-button v-refresh', {

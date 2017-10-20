@@ -13,15 +13,15 @@ v.route.whois = (whois) => {
       active(0)
       state.known = whois.filter.all(state.all)
     },
-    online: () => {
-      document.title = state.title = '[ В Лаба ]'
-      active(1)
-      state.known = whois.filter.online(state.all)
-    },
     backers: () => {
       document.title = state.title = '[ Дарители ]'
-      active(2)
+      active(1)
       state.known = whois.filter.backers(state.all, state.missing)
+    },
+    online: () => {
+      document.title = state.title = '[ В Лаба ]'
+      active(2)
+      state.known = whois.filter.online(state.all)
     },
     unknown: () => {
       document.title = state.title = '[ Гости ]'
@@ -40,9 +40,9 @@ v.route.whois = (whois) => {
       error: {},
 
       toolbar: [
-        {path: '/whois', icon: 'list'},
-        {path: '/whois/online', icon: 'power'},
+        {path: '/whois', icon: 'directions_run'},
         {path: '/whois/backers', icon: 'attach_money'},
+        {path: '/whois/online', icon: 'power'},
         {path: '/whois/unknown', icon: 'fingerprint'},
       ],
     })

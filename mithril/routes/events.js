@@ -16,8 +16,8 @@ v.route.events = (event) => {
     state = Object.assign({}, v.state, {
       route: 'events',
       toolbar: [
-        {path: '/events/upcoming', icon: 'local_movies'},
-        {path: '/events', icon: 'school'},
+        {path: '/events/upcoming', icon: 'school'},
+        {path: '/events', icon: 'local_movies'},
       ],
       events: cache.events,
       filter: args.filter,

@@ -7,6 +7,7 @@ v.view.whois = {
   },
   view: (vnode) =>
     m('main.mdc-toolbar-fixed-adjust',
+      m('h1.mdc-typography--headline', vnode.attrs.title),
 
       /(online|unknown)$/.test(m.route.get())
       ? (

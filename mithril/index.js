@@ -52,6 +52,8 @@ var v = {
 
     toolbar: [
       {path: '/whois', icon: 'directions_run'},
+      {path: '/events/upcoming', icon: 'school'},
+      {path: '/lab', icon: 'lightbulb_outline'},
     ],
     menu: {
       items: [

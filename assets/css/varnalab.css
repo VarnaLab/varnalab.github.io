@@ -72,15 +72,8 @@ h1 {
   z-index: 2;
 }
 
-/*whois filter*/
-.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(1) { color: #fff; }
-.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(2) { color: #44CF6C; }
-.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(3) { color: #FFD60A; }
-.v-toolbar .v-whois .mdc-toolbar__icon.active:nth-of-type(4) { color: #EF2D56; }
-
-/*events filter*/
-.v-toolbar .v-events .mdc-toolbar__icon.active:nth-of-type(1) { color: #44CF6C; }
-.v-toolbar .v-events .mdc-toolbar__icon.active:nth-of-type(2) { color: #FFD60A; }
+/*toolbar filter*/
+.v-toolbar .mdc-toolbar__icon.active { color: #ff0000; }
 
 
 /*drawer*/
