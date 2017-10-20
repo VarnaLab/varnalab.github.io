@@ -6,7 +6,10 @@
 /*toolbar*/
 
 .hacker .v-toolbar { background: #000; color: #64dd17; }
-.hacker .v-toolbar a { color: #64dd17; }
+.hacker .mdc-toolbar__icon--menu,
+.hacker .mdc-toolbar__icon:last-of-type,
+.hacker .v-toolbar .v-filter span { color: #64dd17; }
+.hacker .v-toolbar .v-filter.active span { background: #64dd17; color: #000; }
 
 /*drawer*/
 

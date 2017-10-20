@@ -53,6 +53,7 @@ h1 {
 }
 .v-toolbar .mdc-toolbar__row img {
   position: relative;
+  top: 10%;
   z-index: 1;
   display: none;
   transition: all .1s;
@@ -72,8 +73,13 @@ h1 {
   z-index: 2;
 }
 
-/*toolbar filter*/
-.v-toolbar .mdc-toolbar__icon.active { color: #ff0000; }
+/*toolbar button*/
+.v-toolbar .v-filter { padding: 12px 4px; }
+.v-toolbar .v-filter span {
+  display: block;
+  padding: 4px;
+  border-radius: 5%;
+}
 
 
 /*drawer*/

@@ -39,7 +39,7 @@ v.component.toolbar = {
           class: 'v-' + vnode.attrs.route,
           },
           vnode.attrs.toolbar.map((item) =>
-            m('a.material-icons mdc-toolbar__icon', {
+            m('a.material-icons mdc-toolbar__icon v-filter', {
               'aria-label': '..',
               alt: '..',
               href: item.path,
@@ -47,7 +47,7 @@ v.component.toolbar = {
               oncreate: m.route.link,
               class: item.active ? 'active' : null
               },
-              item.icon
+              m('span', item.icon)
             )
           ),
           m('a.material-icons mdc-toolbar__icon', {
