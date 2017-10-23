@@ -9,7 +9,7 @@ v.route.whois = (whois) => {
 
   var filter = {
     all: () => {
-      document.title = state.title = '[ Хора ]'
+      document.title = state.title = '[ Лабъри ]'
       active(0)
       state.known = whois.filter.all(state.all)
     },

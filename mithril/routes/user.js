@@ -7,6 +7,11 @@ v.route.user = (whois, known) => {
       route: 'known',
       title: '',
       avatar: '',
+      toolbar: [
+        {path: '/whois', icon: 'directions_run'},
+        {path: '/whois/backers', icon: 'attach_money'},
+        {path: '/whois/online', icon: 'power'},
+      ],
       known: {},
       links: [],
     })
@@ -24,6 +29,7 @@ v.route.user = (whois, known) => {
       state.avatar = 'https://gravatar.com/avatar/'
         + state.known.gravatar + '?size=150&d=monsterid'
       document.title = state.title
+      state.toolbar.forEach((item) => item.active = false)
 
       state.links = [known.social(state.known)]
       m.redraw()
