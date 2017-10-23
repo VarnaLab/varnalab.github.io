@@ -25,10 +25,9 @@ v.route.user = (whois, known) => {
 
       whois.loaded = true
 
-      state.title = '[ ' + state.known.name + ' ]'
+      document.title = state.title = '[ ' + state.known.name + ' ]'
       state.avatar = 'https://gravatar.com/avatar/'
         + state.known.gravatar + '?size=150&d=monsterid'
-      document.title = state.title
       state.toolbar.forEach((item) => item.active = false)
 
       state.links = [known.social(state.known)]

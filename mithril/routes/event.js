@@ -16,7 +16,7 @@ v.route.event = (event) => {
     window.scrollTo(0, 0)
 
     event.single(args.id).then((data) => {
-      document.title = state.title = '[ ' + data.name.split(' ')[0] + ' ]'
+      document.title = state.title = '[ ' + data.name + ' ]'
       state.event = data
       state.event.description = state.event.description
         .replace(/\n/gi, '<br>')
