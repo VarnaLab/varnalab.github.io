@@ -171,6 +171,7 @@ h1 {
 .v-card-slider .mdc-card__media {
   position: relative;
   padding: 0;
+  background-size: contain;
 }
 .v-card-slider .mdc-card__title {
   background: rgba(0, 0, 0, .7);
