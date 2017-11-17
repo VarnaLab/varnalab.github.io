@@ -16,7 +16,7 @@ v.component['card-slider'] = {
           oncreate: m.route.link
           },
           m('section.mdc-card__media', {
-              style: 'background-image: url(' + event.photo + ')'
+              style: 'background-image: url(' + event.cover_mobile + ')'
             },
             (vnode.state.now(event) || null) &&
             m('.v-now', 'Събитието тече в момента!'),
