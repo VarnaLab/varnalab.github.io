@@ -100,6 +100,7 @@ var v = {
         {id: 'mobile-native', title: 'Native Приложение (Lite)', url: 'https://play.google.com/store/apps/details?id=com.varnalab.app.android', icon: 'android'},
       ],
     ],
+    cover: 'https://i.imgur.com/GUXZHNM.jpg',
     fab: {},
     snackbar: {},
     dialog: {},

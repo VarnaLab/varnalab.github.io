@@ -10,9 +10,10 @@ v.component['card-event'] = {
   },
   view: (vnode) =>
     m('.mdc-card v-card v-card-event',
-      (vnode.attrs.event.cover_mobile || null) &&
       m('section.mdc-card__media', {
-          style: 'background-image: url(' + vnode.attrs.event.cover_mobile + ')'
+          style: 'background-image: url(' +
+            (vnode.attrs.event.cover_mobile || vnode.attrs.cover) +
+          ')'
         },
         (vnode.state.now(vnode.attrs.event) || null) &&
         m('.v-now', 'Събитието тече в момента!'),
