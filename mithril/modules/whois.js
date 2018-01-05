@@ -4,6 +4,8 @@ v.module.whois = (config) => {
   var get = () =>
     Promise.all(['known', 'backers', 'online'].map((endpoint) =>
       Promise.race([
+        // skip backers endpoint
+        endpoint === 'backers' ? Promise.resolve([]) :
         m.request({
           method: 'GET',
           url: config.api[endpoint]

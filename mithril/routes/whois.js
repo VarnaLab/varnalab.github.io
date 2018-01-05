@@ -20,7 +20,7 @@ v.route.whois = (whois) => {
     },
     online: () => {
       document.title = state.title = '[ В Лаба ]'
-      active(2)
+      active(1)
       state.known = whois.filter.online(state.all)
       state.devices = whois.filter.unknown(whois.sort(state.unknown))
     },
@@ -37,7 +37,8 @@ v.route.whois = (whois) => {
 
       toolbar: [
         {path: '/whois', icon: 'directions_run'},
-        {path: '/whois/backers', icon: 'attach_money'},
+        // do not render the backers tab
+        // {path: '/whois/backers', icon: 'attach_money'},
         {path: '/whois/online', icon: 'power'},
       ],
     })
