@@ -1,0 +1,103 @@
+{
+  "nuc": {
+    "app": "/varnalab/app",
+    "api": "/api/varnalab",
+    "favicon": "/assets/images/favicon.ico",
+    "manifest": "/manifest.json",
+    "css": [
+      "https://fonts.googleapis.com/css?family=Roboto+Mono",
+      "https://fonts.googleapis.com/icon?family=Material+Icons",
+      "/assets/fonts/font-awesome/css/fontello.css",
+
+      "/node_modules/@material/button/dist/mdc.button.min.css",
+      "/node_modules/@material/card/dist/mdc.card.min.css",
+      "/node_modules/@material/dialog/dist/mdc.dialog.min.css",
+      "/node_modules/@material/drawer/dist/mdc.drawer.min.css",
+      "/node_modules/@material/fab/dist/mdc.fab.min.css",
+      "/node_modules/@material/list/dist/mdc.list.min.css",
+      "/node_modules/@material/menu/dist/mdc.menu.min.css",
+      "/node_modules/@material/ripple/dist/mdc.ripple.min.css",
+      "/node_modules/@material/snackbar/dist/mdc.snackbar.min.css",
+      "/node_modules/@material/textfield/dist/mdc.textfield.min.css",
+      "/node_modules/@material/theme/dist/mdc.theme.min.css",
+      "/node_modules/@material/toolbar/dist/mdc.toolbar.min.css",
+      "/node_modules/@material/typography/dist/mdc.typography.min.css",
+
+      "/assets/css/light.css",
+      "/assets/css/shadow.css",
+      "/assets/css/hacker.css",
+      "/assets/css/varnalab.css"
+    ],
+    "js": [
+      "/node_modules/@material/dialog/dist/mdc.dialog.min.js",
+      "/node_modules/@material/drawer/dist/mdc.drawer.min.js",
+      "/node_modules/@material/menu/dist/mdc.menu.min.js",
+      "/node_modules/@material/ripple/dist/mdc.ripple.min.js",
+      "/node_modules/@material/snackbar/dist/mdc.snackbar.min.js",
+      "/node_modules/@material/textfield/dist/mdc.textfield.min.js",
+      "/node_modules/@material/toolbar/dist/mdc.toolbar.min.js",
+
+      "/node_modules/mithril/mithril.min.js",
+
+      "/mithril/index.js",
+
+      "/mithril/components/card-event.js",
+      "/mithril/components/card-events.js",
+      "/mithril/components/card-slider.js",
+      "/mithril/components/dialog.js",
+      "/mithril/components/drawer.js",
+      "/mithril/components/fab.js",
+      "/mithril/components/list-devices.js",
+      "/mithril/components/list-links.js",
+      "/mithril/components/list-users.js",
+      "/mithril/components/menu.js",
+      "/mithril/components/snackbar.js",
+      "/mithril/components/toolbar.js",
+
+      "/mithril/modules/index.js",
+      "/mithril/routes/index.js",
+      "/mithril/views/index.js",
+
+      "/mithril/modules/whois.js",
+      "/mithril/routes/whois.js",
+      "/mithril/views/whois.js",
+
+      "/mithril/modules/user.js",
+      "/mithril/routes/user.js",
+      "/mithril/views/user.js",
+
+      "/mithril/modules/edit.js",
+      "/mithril/routes/edit.js",
+      "/mithril/views/edit.js",
+
+      "/mithril/modules/event.js",
+      "/mithril/routes/events.js",
+      "/mithril/views/events.js",
+
+      "/mithril/routes/event.js",
+      "/mithril/views/event.js",
+
+      "/mithril/routes/lab.js",
+      "/mithril/views/lab.js"
+    ]
+  },
+  "box": {
+    "origin": "https://box.outofindex.com",
+    "app": "/varnalab/app",
+    "api": "/api/varnalab",
+    "favicon": "/assets/images/favicon.ico",
+    "manifest": "/manifest.json",
+    "css": [
+      "https://fonts.googleapis.com/css?family=Roboto+Mono",
+      "https://fonts.googleapis.com/icon?family=Material+Icons",
+      "/assets/fonts/font-awesome/css/fontello.css",
+      "/assets/build/mdc.varnalab.min.css",
+      "/assets/build/varnalab.min.css"
+    ],
+    "js": [
+      "https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.1/mithril.min.js",
+      "/assets/build/mdc.varnalab.min.js",
+      "/assets/build/varnalab.min.js"
+    ]
+  }
+}
