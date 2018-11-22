@@ -26,20 +26,19 @@ if (!env) {
   process.exit()
 }
 
-var static = require('../config/static')[env]
 var meta = require('../config/meta')
 var base = require('../mithril/base')
-var build = require('./build')(argv.build, static)
+var build = require('./build')(argv.build, require('../config/path')[env])
 
 var fs = require('fs')
 var path = require('path')
 
 
 if (argv.render) {
-  base({meta, static})
+  base({meta, path: require('../config/path')[env]})
     .then((html) => {
       fs.writeFileSync(
-        path.resolve(process.cwd(), argv.render, 'index.html'),
+        path.resolve(process.cwd(), argv.render),
         html,
         'utf8'
       )

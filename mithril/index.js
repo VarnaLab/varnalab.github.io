@@ -115,7 +115,7 @@ var v = {
     : 'https://box.outofindex.com'
   Object.keys(v.api)
     .forEach((key) => {
-      v.api[key] = origin + '/varnalab/api' + v.api[key]
+      v.api[key] = origin + global.path.api + v.api[key]
     })
   // temp
   // v.api.online = 'https://json.varnalab.org/services/api.json'
@@ -125,7 +125,7 @@ var v = {
 ;(() => {
   var path =
     (location.protocol === 'file:') ? '/android_asset/www' :
-    /outofindex\.com/.test(location.origin) ? location.origin + '/varnalab/app'
+    /outofindex\.com/.test(location.origin) ? location.origin + global.path.app
     : ''
   v.state.avatar = path + v.state.avatar
 })()
@@ -133,7 +133,7 @@ var v = {
 // prefix
 ;(() => {
   if (/outofindex\.com/.test(location.host)) {
-    m.route.prefix('/varnalab/app')
+    m.route.prefix(global.path.app)
   }
 })()
 

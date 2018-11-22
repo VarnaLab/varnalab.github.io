@@ -21,7 +21,7 @@ var m = (() => {
   return m
 })()
 
-var template = ({meta, static}) =>
+var template = ({meta, path}) =>
   m('html',
     m('head',
       meta.map((attrs, index) =>
@@ -30,23 +30,31 @@ var template = ({meta, static}) =>
 
       m('title', 'VarnaLab'),
 
-      m('link', {rel: 'shortcut icon', href: static.favicon}),
-      m('link', {rel: 'manifest', href: static.manifest}),
+      m('link', {rel: 'shortcut icon', href: `${path.app}${path.favicon}`}),
+      m('link', {rel: 'manifest', href: `${path.app}${path.manifest}`}),
 
-      static.css.map((path) =>
-        m('link', {rel: 'stylesheet', type: 'text/css', href: path})
+      path.css.map((_path) =>
+        m('link', {rel: 'stylesheet', type: 'text/css', href:
+          /^http/.test(_path) ? _path : `${path.origin || ''}${path.app}${_path}`})
       ),
 
-      static.js.map((path) =>
-        m('script', {type: 'text/javascript', src: path})
+      m('script', {type: 'text/javascript'},
+        'var global = ' + JSON.stringify({
+          path: (({app, api}) => ({app, api}))(path)
+        })
+      ),
+
+      path.js.map((_path) =>
+        m('script', {type: 'text/javascript', src:
+          /^http/.test(_path) ? _path : `${path.origin || ''}${path.app}${_path}`})
       )
     ),
     m('body.mdc-typography')
   )
 
-module.exports = ({meta, static}) =>
+module.exports = ({meta, path}) =>
   render({
-    view: () => template({meta, static})
+    view: () => template({meta, path})
   })
   .then((rendered) =>
     html.prettyPrint(
