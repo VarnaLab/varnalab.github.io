@@ -30,8 +30,8 @@ var template = ({meta, path}) =>
 
       m('title', 'VarnaLab'),
 
-      m('link', {rel: 'shortcut icon', href: `${path.app}${path.favicon}`}),
-      m('link', {rel: 'manifest', href: `${path.app}${path.manifest}`}),
+      m('link', {rel: 'shortcut icon', href: `${path.origin || ''}${path.app}${path.favicon}`}),
+      m('link', {rel: 'manifest', href: `${path.origin || ''}${path.app}${path.manifest}`}),
 
       path.css.map((_path) =>
         m('link', {rel: 'stylesheet', type: 'text/css', href:
@@ -39,7 +39,7 @@ var template = ({meta, path}) =>
       ),
 
       m('script', {type: 'text/javascript'},
-        'var global = ' + JSON.stringify({
+        'global = ' + JSON.stringify({
           path: (({app, api}) => ({app, api}))(path)
         })
       ),

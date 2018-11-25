@@ -7,7 +7,7 @@
     "css": [
       "https://fonts.googleapis.com/css?family=Roboto+Mono",
       "https://fonts.googleapis.com/icon?family=Material+Icons",
-      "/assets/fonts/font-awesome/css/fontello.css",
+      "/assets/fonts/css/fontello.css",
 
       "/node_modules/@material/button/dist/mdc.button.min.css",
       "/node_modules/@material/card/dist/mdc.card.min.css",
@@ -90,14 +90,14 @@
     "css": [
       "https://fonts.googleapis.com/css?family=Roboto+Mono",
       "https://fonts.googleapis.com/icon?family=Material+Icons",
-      "/assets/fonts/font-awesome/css/fontello.css",
-      "/assets/build/mdc.varnalab.min.css",
-      "/assets/build/varnalab.min.css"
+      "/assets/fonts/css/fontello.css",
+      "/build/mdc.varnalab.min.css",
+      "/build/varnalab.min.css"
     ],
     "js": [
       "https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.1/mithril.min.js",
-      "/assets/build/mdc.varnalab.min.js",
-      "/assets/build/varnalab.min.js"
+      "/build/mdc.varnalab.min.js",
+      "/build/varnalab.min.js"
     ]
   }
 }
