@@ -24,7 +24,7 @@ v.component.toolbar = {
       'mdc-toolbar--flexible-default-behavior',
       'v-toolbar'
       ].join(' '),
-      m('.mdc-toolbar__row',
+      m('.mdc-toolbar__row', {style: `background-image: url('${vnode.attrs.matrix}')`},
         m('section.mdc-toolbar__section mdc-toolbar__section--align-start',
           m('a.material-icons mdc-toolbar__icon--menu', {
             href: '#',

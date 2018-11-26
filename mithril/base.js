@@ -40,7 +40,7 @@ var template = ({meta, path}) =>
 
       m('script', {type: 'text/javascript'},
         'global = ' + JSON.stringify({
-          path: (({app, api}) => ({app, api}))(path)
+          path: (({origin, app, api}) => ({origin, app, api}))(path)
         })
       ),
 

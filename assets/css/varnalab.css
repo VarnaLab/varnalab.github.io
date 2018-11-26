@@ -43,7 +43,7 @@ h1 {
 /*toolbar header scroll*/
 .v-drawer .mdc-temporary-drawer__header-content,
 .v-toolbar .mdc-toolbar__row:first-child::after {
-  background-image: url('../images/matrix.png');
+  /*background-image: url('../images/matrix.png');*/
   background-size: cover;
   background-position: center;
   background-repeat: repeat;

@@ -23,6 +23,7 @@ v.component.drawer = {
       m('nav.mdc-temporary-drawer__drawer',
         m('header.mdc-temporary-drawer__header',
           m('.mdc-temporary-drawer__header-content',
+            {style: `background-image: url('${vnode.attrs.matrix}')`},
             m('h1.mdc-typography--display1', '[ VarnaLab ]')
           )
         ),

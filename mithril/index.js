@@ -48,7 +48,8 @@ var v = {
 
     route: '',
     title: '',
-    avatar: '/assets/images/logo.png',
+    avatar: `${global.path.origin || ''}${global.path.app}/assets/images/logo.png`,
+    matrix: `${global.path.origin || ''}${global.path.app}/assets/images/matrix.png`,
 
     toolbar: [
       {path: '/whois', icon: 'directions_run'},
@@ -113,12 +114,9 @@ var v = {
   var origin = /outofindex\.com/.test(location.origin)
     ? location.origin
     : 'https://box.outofindex.com'
-  Object.keys(v.api)
-    .forEach((key) => {
-      v.api[key] = origin + global.path.api + v.api[key]
-    })
-  // temp
-  // v.api.online = 'https://json.varnalab.org/services/api.json'
+  Object.keys(v.api).forEach((key) => {
+    v.api[key] = origin + global.path.api + v.api[key]
+  })
 })()
 
 // assets
